@@ -3,4 +3,7 @@
         <file>icon_linux.png</file>
         <file>icon_mac.png</file>
     </qresource>
+    <qresource prefix="/qml">
+        <file>widget/welcome_gui.qml</file>
+    </qresource>
 </RCC>
