@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/icone">
+        <file>icon_linux.png</file>
+        <file>icon_mac.png</file>
+    </qresource>
+</RCC>
