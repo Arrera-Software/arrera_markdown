@@ -2,6 +2,10 @@
 
 #include <QApplication>
 
+#include <QGuiApplication>
+#include <QQmlApplicationEngine>
+#include <QQuickStyle>
+
 int main(int argc, char *argv[])
 {
     #ifdef Q_OS_LINUX
@@ -12,6 +16,10 @@ int main(int argc, char *argv[])
 
     QApplication a(argc, argv);
     gui_markdown w;
+
+    QQuickStyle::setStyle("Material");
+
+    QQmlApplicationEngine engine;
 
     #ifdef Q_OS_LINUX
         w.setWindowIcon(QIcon(":/icone/icon_linux.png"));

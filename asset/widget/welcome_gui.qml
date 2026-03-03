@@ -5,25 +5,27 @@ import QtQuick.Controls.Material
 
 Item {
 
-    Material.theme: Material.Light
-    Material.accent: Material.BlueGrey
-    Material.primary: Material.LightBlue
-
     RowLayout {
-        spacing: 40
+        spacing: 200
         anchors.centerIn: parent
 
         // Un bouton standard avec une icône
         Button {
             text: "Cree un document"
+            highlighted: true
+            Material.accent: Material.Blue
+            Material.primary: Material.Indigo
             //icon.name: "document-save"
-            //onClicked: console.log("Fichier sauvé !")
+            onClicked: console.log("Fichier sauvé !")
         }
 
         Button {
             text: "Espace de travail"
+            highlighted: true
+            Material.accent: Material.Blue
+            Material.primary: Material.Indigo
             //icon.name: "document-save"
-            //onClicked: console.log("Fichier sauvé !")
+            onClicked: {}
         }
     }
 }

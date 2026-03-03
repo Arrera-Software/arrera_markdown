@@ -2,6 +2,9 @@
 #define GUI_MARKDOWN_H
 
 #include <QMainWindow>
+#include <iostream>
+
+using namespace std;
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -16,6 +19,9 @@ class gui_markdown : public QMainWindow
 public:
     gui_markdown(QWidget *parent = nullptr);
     ~gui_markdown();
+
+    Q_INVOKABLE void view_espace();
+    Q_INVOKABLE void create_document();
 
 private:
     Ui::gui_markdown *ui;
