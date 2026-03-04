@@ -27,6 +27,11 @@ int main(int argc, char *argv[])
 
     #ifdef Q_OS_WIN
         w.setWindowIcon(QIcon(":/icone/icon_linux.png"));
+
+    #endif
+
+    #ifdef Q_OS_MAC
+        w.setWindowIcon(QIcon(":/icone/icon_mac.png"));
     #endif
 
     w.show();

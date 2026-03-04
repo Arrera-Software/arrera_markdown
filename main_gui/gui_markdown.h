@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <iostream>
+#include <QPixmap>
 
 using namespace std;
 
@@ -22,6 +23,9 @@ public:
 
     Q_INVOKABLE void view_espace();
     Q_INVOKABLE void create_document();
+
+private slots:
+    void on_tf_btn_icon_clicked();
 
 private:
     Ui::gui_markdown *ui;

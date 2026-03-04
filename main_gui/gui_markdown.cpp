@@ -7,7 +7,12 @@ gui_markdown::gui_markdown(QWidget *parent)
 {
     ui->setupUi(this);
 
-    ui->quickWidget->rootContext()->setContextProperty("app", this);
+    //ui->main_quick_widget->rootContext()->setContextProperty("app", this);
+    #ifdef Q_OS_MAC
+    ui->tf_btn_icon->setIcon(QPixmap(":/icone/icon_mac.png").
+                                 scaled(50, 50, Qt::KeepAspectRatio,
+                                        Qt::SmoothTransformation));
+    #endif
 }
 
 gui_markdown::~gui_markdown()
@@ -22,3 +27,9 @@ void gui_markdown::view_espace(){
 void gui_markdown::create_document(){
     cout << "Creation document" << endl;
 }
+
+void gui_markdown::on_tf_btn_icon_clicked()
+{
+    cout << "A Propos" << endl;
+}
+
