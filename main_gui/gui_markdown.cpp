@@ -8,12 +8,32 @@ gui_markdown::gui_markdown(QWidget *parent)
 {
     ui->setupUi(this);
 
+    index_main = ui->arrera_hub->indexOf(ui->main);
+    index_about = ui->arrera_hub->indexOf(ui->about);
+
+    ui->arrera_hub->setCurrentIndex(index_main);
+
+
     ui->main_quick_widget->rootContext()->setContextProperty("mainWindow", this);
     #ifdef Q_OS_MAC
     ui->tf_btn_icon->setIcon(QPixmap(":/icone/icon_mac.png").
                                  scaled(50, 50, Qt::KeepAspectRatio,
                                         Qt::SmoothTransformation));
     #endif
+
+
+
+    if (dectOS.getosApple()){
+        QPixmap icon(":/icone/icon_mac.png");
+        ui->about_label_icon->setPixmap(icon.scaled(
+            ui->about_label_icon->size(),
+            Qt::KeepAspectRatio, Qt::SmoothTransformation));
+    }else{
+        QPixmap icon(":/icone/icon_linux.png");
+        ui->about_label_icon->setPixmap(icon.scaled(
+            ui->about_label_icon->size(),
+            Qt::KeepAspectRatio, Qt::SmoothTransformation));
+    }
 }
 
 gui_markdown::~gui_markdown()
@@ -31,6 +51,6 @@ void gui_markdown::create_document(){
 
 void gui_markdown::on_tf_btn_icon_clicked()
 {
-    cout << "A Propos" << endl;
+    ui->arrera_hub->setCurrentIndex(index_about);
 }
 
