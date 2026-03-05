@@ -15,8 +15,7 @@ Item {
             highlighted: true
             Material.accent: Material.Blue
             Material.primary: Material.Indigo
-            //icon.name: "document-save"
-            onClicked: console.log("Fichier sauvé !")
+            onClicked: mainWindow.create_document()
         }
 
         Button {
@@ -24,8 +23,7 @@ Item {
             highlighted: true
             Material.accent: Material.Blue
             Material.primary: Material.Indigo
-            //icon.name: "document-save"
-            onClicked: {}
+            onClicked: mainWindow.view_espace()
         }
     }
 }

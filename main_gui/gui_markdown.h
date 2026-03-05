@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <iostream>
 #include <QPixmap>
+#include <QQmlContext>
 
 using namespace std;
 

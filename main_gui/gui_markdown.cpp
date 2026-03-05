@@ -1,13 +1,14 @@
 #include "gui_markdown.h"
 #include "ui_gui_markdown.h"
 
+
 gui_markdown::gui_markdown(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::gui_markdown)
 {
     ui->setupUi(this);
 
-    //ui->main_quick_widget->rootContext()->setContextProperty("app", this);
+    ui->main_quick_widget->rootContext()->setContextProperty("mainWindow", this);
     #ifdef Q_OS_MAC
     ui->tf_btn_icon->setIcon(QPixmap(":/icone/icon_mac.png").
                                  scaled(50, 50, Qt::KeepAspectRatio,
