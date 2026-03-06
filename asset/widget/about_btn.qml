@@ -17,6 +17,7 @@ Item {
                 text: "Site internet"
                 Material.accent: Material.Blue
                 Material.primary: Material.Indigo
+                onClicked: main.open_web_page("https://arrera-software.fr/")
             }
 
             Item { Layout.fillWidth: true }
@@ -25,6 +26,7 @@ Item {
                 text: "Documentation"
                 Material.accent: Material.Blue
                 Material.primary: Material.Indigo
+                onClicked: main.open_web_page("https://arrera-software.fr/")
             }
 
             Item { Layout.fillWidth: true }
@@ -33,6 +35,7 @@ Item {
                 text: "Code source"
                 Material.accent: Material.Blue
                 Material.primary: Material.Indigo
+                onClicked: main.open_web_page("https://github.com/Arrera-Software/arrera_markdown")
             }
         }
 

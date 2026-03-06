@@ -60,5 +60,8 @@ void gui_markdown::on_tf_btn_icon_clicked()
     ui->arrera_hub->setCurrentIndex(index_about);
 }
 
-
+void gui_markdown::open_web_page(QString p){
+    QUrl url(p);
+    QDesktopServices::openUrl(url);
+}
 

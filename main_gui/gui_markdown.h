@@ -2,11 +2,13 @@
 #define GUI_MARKDOWN_H
 
 #include <QMainWindow>
-#include <iostream>
 #include <QPixmap>
 #include <QQmlContext>
 #include "lib/cdetectionos.h"
+#include <QDesktopServices>
+#include <QUrl>
 
+#include <iostream>
 using namespace std;
 
 QT_BEGIN_NAMESPACE
@@ -26,6 +28,7 @@ public:
     Q_INVOKABLE void view_espace();
     Q_INVOKABLE void create_document();
     Q_INVOKABLE void back_about();
+    Q_INVOKABLE void open_web_page(QString p);
 
 private slots:
     void on_tf_btn_icon_clicked();
