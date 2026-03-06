@@ -30,3 +30,4 @@ RESOURCES += \
 
 DISTFILES += \
     asset/widget/welcome_gui.qml
+    asset/widget/about_btn.qml

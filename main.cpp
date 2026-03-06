@@ -19,8 +19,6 @@ int main(int argc, char *argv[])
 
     QQuickStyle::setStyle("Material");
 
-    QQmlApplicationEngine engine;
-
     #ifdef Q_OS_LINUX
         w.setWindowIcon(QIcon(":/icone/icon_linux.png"));
     #endif

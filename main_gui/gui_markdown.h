@@ -25,6 +25,7 @@ public:
 
     Q_INVOKABLE void view_espace();
     Q_INVOKABLE void create_document();
+    Q_INVOKABLE void back_about();
 
 private slots:
     void on_tf_btn_icon_clicked();

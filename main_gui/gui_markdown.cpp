@@ -15,6 +15,8 @@ gui_markdown::gui_markdown(QWidget *parent)
 
 
     ui->main_quick_widget->rootContext()->setContextProperty("mainWindow", this);
+    ui->about_qwidget_setting->rootContext()->setContextProperty("main", this);
+
     #ifdef Q_OS_MAC
     ui->tf_btn_icon->setIcon(QPixmap(":/icone/icon_mac.png").
                                  scaled(50, 50, Qt::KeepAspectRatio,
@@ -49,8 +51,14 @@ void gui_markdown::create_document(){
     cout << "Creation document" << endl;
 }
 
+void gui_markdown::back_about(){
+    ui->arrera_hub->setCurrentIndex(index_main);
+}
+
 void gui_markdown::on_tf_btn_icon_clicked()
 {
     ui->arrera_hub->setCurrentIndex(index_about);
 }
+
+
 
