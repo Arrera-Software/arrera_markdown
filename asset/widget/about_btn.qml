@@ -15,7 +15,6 @@ Item {
 
             Button {
                 text: "Site internet"
-                Material.accent: Material.Blue
                 Material.primary: Material.Indigo
                 onClicked: main.open_web_page("https://arrera-software.fr/")
             }
@@ -24,7 +23,6 @@ Item {
 
             Button {
                 text: "Documentation"
-                Material.accent: Material.Blue
                 Material.primary: Material.Indigo
                 onClicked: main.open_web_page("https://arrera-software.fr/")
             }

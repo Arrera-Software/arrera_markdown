@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>600</height>
+    <height>674</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,7 +22,7 @@
     <item>
      <widget class="QStackedWidget" name="arrera_hub">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="main">
        <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -115,16 +115,33 @@
          </widget>
         </item>
         <item>
-         <widget class="QQuickWidget" name="main_quick_widget">
-          <property name="resizeMode">
-           <enum>QQuickWidget::ResizeMode::SizeRootObjectToView</enum>
-          </property>
-          <property name="source">
-           <url>
-            <string>qrc:/qml/widget/welcome_gui.qml</string>
-           </url>
-          </property>
-         </widget>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <widget class="QQuickWidget" name="main_quick_widget">
+            <property name="resizeMode">
+             <enum>QQuickWidget::ResizeMode::SizeRootObjectToView</enum>
+            </property>
+            <property name="source">
+             <url>
+              <string>qrc:/qml/widget/welcome_gui.qml</string>
+             </url>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
         </item>
        </layout>
       </widget>

@@ -4,26 +4,44 @@ import QtQuick.Layouts
 import QtQuick.Controls.Material
 
 Item {
+    implicitWidth: 200
+    implicitHeight: 600
 
-    RowLayout {
-        spacing: 200
-        anchors.centerIn: parent
+    ColumnLayout {
+        anchors.fill: parent
+        anchors.margins: 15
+        spacing: 15
 
-        // Un bouton standard avec une icône
         Button {
-            text: "Cree un document"
+            text:"+"
+            Layout.alignment: Qt.AlignHCenter
             highlighted: true
-            Material.accent: Material.Blue
-            Material.primary: Material.Indigo
+            Material.accent: Material.BlueGrey
+            Material.primary: Material.BlueGrey
             onClicked: mainWindow.create_document()
         }
 
         Button {
-            text: "Espace de travail"
+            text:"E"
+            Layout.alignment: Qt.AlignHCenter
             highlighted: true
-            Material.accent: Material.Blue
-            Material.primary: Material.Indigo
+            Material.accent: Material.BlueGrey
+            Material.primary: Material.BlueGrey
             onClicked: mainWindow.view_espace()
+        }
+
+
+        Item {
+            Layout.fillHeight: true
+        }
+
+        Button {
+            text:"SETTING"
+            Layout.fillWidth: true
+            highlighted: true
+            Material.accent: Material.BlueGrey
+            Material.primary: Material.BlueGrey
+            //onClicked: console.log("Action du bas")
         }
     }
 }

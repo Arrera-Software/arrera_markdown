@@ -27,7 +27,3 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     asset/resource.qrc
-
-DISTFILES += \
-    asset/widget/welcome_gui.qml
-    asset/widget/about_btn.qml
