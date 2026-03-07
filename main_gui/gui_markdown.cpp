@@ -21,21 +21,18 @@ gui_markdown::gui_markdown(QWidget *parent)
     ui->tf_btn_icon->setIcon(QPixmap(":/icone/icon_mac.png").
                                  scaled(50, 50, Qt::KeepAspectRatio,
                                         Qt::SmoothTransformation));
+    QPixmap icon(":/icone/icon_mac.png");
+    ui->about_label_icon->setPixmap(icon.scaled(
+        QSize(512,512),
+        Qt::KeepAspectRatio, Qt::SmoothTransformation));
+
     #endif
-
-
-
-    if (dectOS.getosApple()){
-        QPixmap icon(":/icone/icon_mac.png");
-        ui->about_label_icon->setPixmap(icon.scaled(
-            ui->about_label_icon->size(),
-            Qt::KeepAspectRatio, Qt::SmoothTransformation));
-    }else{
-        QPixmap icon(":/icone/icon_linux.png");
-        ui->about_label_icon->setPixmap(icon.scaled(
-            ui->about_label_icon->size(),
-            Qt::KeepAspectRatio, Qt::SmoothTransformation));
-    }
+    #ifdef Q_OS_LINUX
+    QPixmap icon(":/icone/icon_linux.png");
+    ui->about_label_icon->setPixmap(icon.scaled(
+        QSize(512,512),
+        Qt::KeepAspectRatio, Qt::SmoothTransformation));
+    #endif
 }
 
 gui_markdown::~gui_markdown()

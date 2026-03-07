@@ -4,7 +4,6 @@
 #include <QMainWindow>
 #include <QPixmap>
 #include <QQmlContext>
-#include "lib/cdetectionos.h"
 #include <QDesktopServices>
 #include <QUrl>
 
@@ -35,7 +34,6 @@ private slots:
 
 private:
     Ui::gui_markdown *ui;
-    CDetectionOS dectOS;
     int index_main,index_about;
 };
 #endif // GUI_MARKDOWN_H

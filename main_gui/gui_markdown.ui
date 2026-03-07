@@ -50,9 +50,18 @@
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout">
            <property name="spacing">
-            <number>6</number>
+            <number>0</number>
+           </property>
+           <property name="leftMargin">
+            <number>0</number>
            </property>
            <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
             <number>0</number>
            </property>
            <item>
@@ -164,10 +173,16 @@
           </item>
           <item>
            <widget class="QLabel" name="about_label_icon">
+            <property name="minimumSize">
+             <size>
+              <width>512</width>
+              <height>512</height>
+             </size>
+            </property>
             <property name="maximumSize">
              <size>
-              <width>400</width>
-              <height>400</height>
+              <width>512</width>
+              <height>512</height>
              </size>
             </property>
             <property name="text">
