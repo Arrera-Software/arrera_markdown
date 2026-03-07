@@ -41,7 +41,7 @@ Item {
             highlighted: true
             Material.accent: Material.BlueGrey
             Material.primary: Material.BlueGrey
-            //onClicked: console.log("Action du bas")
+            onClicked: mainWindow.view_setting()
         }
     }
 }

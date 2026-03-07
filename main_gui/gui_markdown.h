@@ -28,12 +28,14 @@ public:
     Q_INVOKABLE void create_document();
     Q_INVOKABLE void back_about();
     Q_INVOKABLE void open_web_page(QString p);
+    Q_INVOKABLE void view_setting();
+    Q_INVOKABLE void back_setting();
 
 private slots:
     void on_tf_btn_icon_clicked();
 
 private:
     Ui::gui_markdown *ui;
-    int index_main,index_about;
+    int index_main,index_about,index_setting;
 };
 #endif // GUI_MARKDOWN_H

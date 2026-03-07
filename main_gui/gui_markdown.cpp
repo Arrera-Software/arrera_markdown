@@ -10,12 +10,14 @@ gui_markdown::gui_markdown(QWidget *parent)
 
     index_main = ui->arrera_hub->indexOf(ui->main);
     index_about = ui->arrera_hub->indexOf(ui->about);
+    index_setting = ui->arrera_hub->indexOf(ui->setting);
 
     ui->arrera_hub->setCurrentIndex(index_main);
 
 
     ui->main_quick_widget->rootContext()->setContextProperty("mainWindow", this);
     ui->about_qwidget_setting->rootContext()->setContextProperty("main", this);
+    ui->setting_menu->rootContext()->setContextProperty("main", this);
 
     #ifdef Q_OS_MAC
     ui->tf_btn_icon->setIcon(QPixmap(":/icone/icon_mac.png").
@@ -48,8 +50,16 @@ void gui_markdown::create_document(){
     cout << "Creation document" << endl;
 }
 
+void gui_markdown::back_setting(){
+    ui->arrera_hub->setCurrentIndex(index_main);
+}
+
 void gui_markdown::back_about(){
     ui->arrera_hub->setCurrentIndex(index_main);
+}
+
+void gui_markdown::view_setting(){
+    ui->arrera_hub->setCurrentIndex(index_setting);
 }
 
 void gui_markdown::on_tf_btn_icon_clicked()

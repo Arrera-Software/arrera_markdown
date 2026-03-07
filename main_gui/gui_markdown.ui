@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>674</height>
+    <height>795</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -151,6 +151,28 @@
            </spacer>
           </item>
          </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="setting">
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <item>
+         <widget class="QQuickWidget" name="setting_menu">
+          <property name="resizeMode">
+           <enum>QQuickWidget::ResizeMode::SizeRootObjectToView</enum>
+          </property>
+          <property name="source">
+           <url>
+            <string>qrc:/qml/widget/setting_menu.qml</string>
+           </url>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QStackedWidget" name="markdown_setting">
+          <widget class="QWidget" name="setting_main"/>
+          <widget class="QWidget" name="setting_space"/>
+         </widget>
         </item>
        </layout>
       </widget>
