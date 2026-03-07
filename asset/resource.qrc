@@ -7,4 +7,12 @@
         <file>widget/welcome_gui.qml</file>
         <file>widget/about_btn.qml</file>
     </qresource>
+    <qresource prefix="/icone_gui">
+        <file>settings_dark.png</file>
+        <file>settings_light.png</file>
+        <file>add_dark.png</file>
+        <file>add_light.png</file>
+        <file>space_dark.png</file>
+        <file>space_light.png</file>
+    </qresource>
 </RCC>

@@ -13,7 +13,7 @@ Item {
         spacing: 15
 
         Button {
-            text:"+"
+            icon.source: "qrc:/icone_gui/add_light.png"
             Layout.alignment: Qt.AlignHCenter
             highlighted: true
             Material.accent: Material.BlueGrey
@@ -22,7 +22,7 @@ Item {
         }
 
         Button {
-            text:"E"
+            icon.source: "qrc:/icone_gui/space_light.png"
             Layout.alignment: Qt.AlignHCenter
             highlighted: true
             Material.accent: Material.BlueGrey
@@ -36,7 +36,7 @@ Item {
         }
 
         Button {
-            text:"SETTING"
+            icon.source:"qrc:/icone_gui/settings_light.png"
             Layout.fillWidth: true
             highlighted: true
             Material.accent: Material.BlueGrey
