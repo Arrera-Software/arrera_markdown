@@ -170,6 +170,9 @@
         </item>
         <item>
          <widget class="QStackedWidget" name="markdown_setting">
+          <property name="currentIndex">
+           <number>1</number>
+          </property>
           <widget class="QWidget" name="setting_main">
            <layout class="QVBoxLayout" name="verticalLayout_4">
             <item>
@@ -323,7 +326,26 @@
             </item>
            </layout>
           </widget>
-          <widget class="QWidget" name="setting_space"/>
+          <widget class="QWidget" name="setting_space">
+           <layout class="QVBoxLayout" name="verticalLayout_7">
+            <item>
+             <widget class="QLabel" name="label_setting_state_title">
+              <property name="font">
+               <font>
+                <pointsize>18</pointsize>
+                <bold>true</bold>
+               </font>
+              </property>
+              <property name="text">
+               <string>Espace de travail</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignmentFlag::AlignCenter</set>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
           <widget class="QWidget" name="setting_template"/>
          </widget>
         </item>

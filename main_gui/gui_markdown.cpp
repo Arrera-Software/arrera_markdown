@@ -12,12 +12,16 @@ gui_markdown::gui_markdown(QWidget *parent)
     index_about = ui->arrera_hub->indexOf(ui->about);
     index_setting = ui->arrera_hub->indexOf(ui->setting);
 
+    index_setting_main = ui->markdown_setting->indexOf(ui->setting_main);
+    index_setting_state = ui->markdown_setting->indexOf(ui->setting_template);
+    index_setting_template = ui->markdown_setting->indexOf(ui->setting_template);
+
     ui->arrera_hub->setCurrentIndex(index_main);
 
 
     ui->main_quick_widget->rootContext()->setContextProperty("mainWindow", this);
     ui->about_qwidget_setting->rootContext()->setContextProperty("main", this);
-    ui->setting_menu->rootContext()->setContextProperty("main", this);
+    ui->setting_qwidget_menu->rootContext()->setContextProperty("main", this);
 
     #ifdef Q_OS_MAC
     ui->tf_btn_icon->setIcon(QPixmap(":/icone/icon_mac.png").

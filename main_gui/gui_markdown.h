@@ -37,5 +37,6 @@ private slots:
 private:
     Ui::gui_markdown *ui;
     int index_main,index_about,index_setting;
+    int index_setting_main,index_setting_state,index_setting_template;
 };
 #endif // GUI_MARKDOWN_H
