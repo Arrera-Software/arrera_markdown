@@ -30,6 +30,9 @@ int main(int argc, char *argv[])
 
     #ifdef Q_OS_MAC
         w.setWindowIcon(QIcon(":/icone/icon_mac.png"));
+        a.setApplicationName("Arrera Markdown");
+        a.setApplicationVersion("I2026-1.00");
+        a.setOrganizationName("Arrera Software");
     #endif
 
     w.show();

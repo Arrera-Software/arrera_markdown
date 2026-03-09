@@ -33,7 +33,6 @@ gui_markdown::gui_markdown(QWidget *parent)
         Qt::KeepAspectRatio, Qt::SmoothTransformation));
     ui->tf_btn_icone_editor->setIcon(icon.scaled(50, 50, Qt::KeepAspectRatio,
                                                  Qt::SmoothTransformation));
-
     #endif
     #ifdef Q_OS_LINUX
     QPixmap icon(":/icone/icon_linux.png");
