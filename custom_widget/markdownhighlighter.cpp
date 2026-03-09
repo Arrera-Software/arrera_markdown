@@ -107,6 +107,29 @@ void MarkdownHighlighter::setupRules() {
     QTextCharFormat imageFormat;
     imageFormat.setForeground(QColor("#228B22"));
     imageFormat.setFontWeight(QFont::Bold);
+
+    QTextCharFormat bulletFormat;
+    bulletFormat.setFontWeight(QFont::Bold);
+    rule.pattern = QRegularExpression("^(?:[-*+])\\s");
+    rule.capturingGroupFormats.clear();
+    rule.capturingGroupFormats.insert(0, bulletFormat); // On formate toute la correspondance
+    rules.append(rule);
+
+    QTextCharFormat numberFormat;
+    numberFormat.setFontWeight(QFont::Bold);
+    rule.pattern = QRegularExpression("^(\\d+)(\\.\\s)");
+    rule.capturingGroupFormats.clear();
+    rule.capturingGroupFormats.insert(0, numberFormat);
+    rules.append(rule);
+
+    QTextCharFormat underlineFormat;
+    underlineFormat.setFontUnderline(true);
+    rule.pattern = QRegularExpression("(\\+\\+)(.*?)(\\+\\+)");
+    rule.capturingGroupFormats.clear();
+    rule.capturingGroupFormats.insert(1, transparentFormat);
+    rule.capturingGroupFormats.insert(2, underlineFormat);
+    rule.capturingGroupFormats.insert(3, transparentFormat);
+    rules.append(rule);
 }
 
 void MarkdownHighlighter::highlightBlock(const QString &text) {
