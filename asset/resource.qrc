@@ -7,6 +7,8 @@
         <file>widget/welcome_gui.qml</file>
         <file>widget/about_btn.qml</file>
         <file>widget/setting_menu.qml</file>
+        <file>widget/editor_menu_one.qml</file>
+        <file>widget/editor_menu_two.qml</file>
     </qresource>
     <qresource prefix="/icone_gui">
         <file>settings_dark.png</file>

@@ -158,6 +158,12 @@
        <layout class="QVBoxLayout" name="verticalLayout_7">
         <item>
          <widget class="QFrame" name="TOP_FRAME_EDITOR">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>80</height>
+           </size>
+          </property>
           <property name="frameShape">
            <enum>QFrame::Shape::StyledPanel</enum>
           </property>
@@ -195,22 +201,60 @@
             </widget>
            </item>
            <item>
-            <widget class="QQuickWidget" name="qwidget_editor_menu">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>0</height>
-              </size>
-             </property>
+            <widget class="QStackedWidget" name="menu_editor">
              <property name="maximumSize">
               <size>
                <width>16777215</width>
                <height>60</height>
               </size>
              </property>
-             <property name="resizeMode">
-              <enum>QQuickWidget::ResizeMode::SizeRootObjectToView</enum>
+             <property name="currentIndex">
+              <number>0</number>
              </property>
+             <widget class="QWidget" name="paga_one">
+              <layout class="QHBoxLayout" name="horizontalLayout_7">
+               <item>
+                <widget class="QQuickWidget" name="qwidget_editor_menu_one">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>16777215</width>
+                   <height>60</height>
+                  </size>
+                 </property>
+                 <property name="resizeMode">
+                  <enum>QQuickWidget::ResizeMode::SizeRootObjectToView</enum>
+                 </property>
+                 <property name="source">
+                  <url>
+                   <string>qrc:/qml/widget/editor_menu_one.qml</string>
+                  </url>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+             <widget class="QWidget" name="page_two">
+              <layout class="QHBoxLayout" name="horizontalLayout_8">
+               <item>
+                <widget class="QQuickWidget" name="qwidget_editor_menu_two">
+                 <property name="resizeMode">
+                  <enum>QQuickWidget::ResizeMode::SizeRootObjectToView</enum>
+                 </property>
+                 <property name="source">
+                  <url>
+                   <string>qrc:/qml/widget/editor_menu_two.qml</string>
+                  </url>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
             </widget>
            </item>
           </layout>
