@@ -11,6 +11,7 @@ gui_markdown::gui_markdown(QWidget *parent)
     index_main = ui->arrera_hub->indexOf(ui->main);
     index_about = ui->arrera_hub->indexOf(ui->about);
     index_setting = ui->arrera_hub->indexOf(ui->setting);
+    index_editor = ui->arrera_hub->indexOf(ui->editor);
 
     index_setting_main = ui->markdown_setting->indexOf(ui->setting_main);
     index_setting_state = ui->markdown_setting->indexOf(ui->setting_template);
@@ -24,13 +25,14 @@ gui_markdown::gui_markdown(QWidget *parent)
     ui->setting_qwidget_menu->rootContext()->setContextProperty("main", this);
 
     #ifdef Q_OS_MAC
-    ui->tf_btn_icon->setIcon(QPixmap(":/icone/icon_mac.png").
-                                 scaled(50, 50, Qt::KeepAspectRatio,
-                                        Qt::SmoothTransformation));
     QPixmap icon(":/icone/icon_mac.png");
+    ui->tf_btn_icon->setIcon(icon.scaled(50, 50, Qt::KeepAspectRatio,
+                                        Qt::SmoothTransformation));
     ui->about_label_icon->setPixmap(icon.scaled(
         QSize(512,512),
         Qt::KeepAspectRatio, Qt::SmoothTransformation));
+    ui->tf_btn_icone_editor->setIcon(icon.scaled(50, 50, Qt::KeepAspectRatio,
+                                                 Qt::SmoothTransformation));
 
     #endif
     #ifdef Q_OS_LINUX
@@ -51,7 +53,7 @@ void gui_markdown::view_espace(){
 }
 
 void gui_markdown::create_document(){
-    cout << "Creation document" << endl;
+    ui->arrera_hub->setCurrentIndex(index_editor);
 }
 
 void gui_markdown::back_setting(){
@@ -74,5 +76,11 @@ void gui_markdown::on_tf_btn_icon_clicked()
 void gui_markdown::open_web_page(QString p){
     QUrl url(p);
     QDesktopServices::openUrl(url);
+}
+
+
+void gui_markdown::on_tf_btn_icone_editor_clicked()
+{
+    ui->arrera_hub->setCurrentIndex(index_main);
 }
 

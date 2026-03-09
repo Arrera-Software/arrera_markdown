@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>795</height>
+    <height>806</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -50,19 +50,19 @@
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout">
            <property name="spacing">
-            <number>0</number>
+            <number>-1</number>
            </property>
            <property name="leftMargin">
-            <number>0</number>
+            <number>12</number>
            </property>
            <property name="topMargin">
-            <number>0</number>
+            <number>12</number>
            </property>
            <property name="rightMargin">
-            <number>0</number>
+            <number>12</number>
            </property>
            <property name="bottomMargin">
-            <number>0</number>
+            <number>12</number>
            </property>
            <item>
             <widget class="QPushButton" name="tf_btn_icon">
@@ -154,6 +154,73 @@
         </item>
        </layout>
       </widget>
+      <widget class="QWidget" name="editor">
+       <layout class="QVBoxLayout" name="verticalLayout_7">
+        <item>
+         <widget class="QFrame" name="TOP_FRAME_EDITOR">
+          <property name="frameShape">
+           <enum>QFrame::Shape::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Shadow::Raised</enum>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_6">
+           <item>
+            <widget class="QPushButton" name="tf_btn_icone_editor">
+             <property name="minimumSize">
+              <size>
+               <width>60</width>
+               <height>60</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>60</width>
+               <height>60</height>
+              </size>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="icon">
+              <iconset resource="../asset/resource.qrc">
+               <normaloff>:/icone/icon_linux.png</normaloff>:/icone/icon_linux.png</iconset>
+             </property>
+             <property name="iconSize">
+              <size>
+               <width>50</width>
+               <height>50</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QQuickWidget" name="qwidget_editor_menu">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>60</height>
+              </size>
+             </property>
+             <property name="resizeMode">
+              <enum>QQuickWidget::ResizeMode::SizeRootObjectToView</enum>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="MarkdownEditor" name="plainTextEdit"/>
+        </item>
+       </layout>
+      </widget>
       <widget class="QWidget" name="setting">
        <layout class="QHBoxLayout" name="horizontalLayout_4">
         <item>
@@ -170,6 +237,9 @@
         </item>
         <item>
          <widget class="QStackedWidget" name="markdown_setting">
+          <property name="currentIndex">
+           <number>0</number>
+          </property>
           <widget class="QWidget" name="setting_main">
            <layout class="QVBoxLayout" name="verticalLayout_4">
             <item>
@@ -489,6 +559,11 @@
    <class>QQuickWidget</class>
    <extends>QWidget</extends>
    <header location="global">QtQuickWidgets/QQuickWidget</header>
+  </customwidget>
+  <customwidget>
+   <class>MarkdownEditor</class>
+   <extends>QPlainTextEdit</extends>
+   <header location="global">custom_widget/markdowneditor.h</header>
   </customwidget>
  </customwidgets>
  <resources>

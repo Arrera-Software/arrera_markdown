@@ -9,10 +9,14 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    custom_widget/markdowneditor.cpp \
+    custom_widget/markdownhighlighter.cpp \
     main.cpp \
     main_gui/gui_markdown.cpp
 
 HEADERS += \
+    custom_widget/markdowneditor.h \
+    custom_widget/markdownhighlighter.h \
     main_gui/gui_markdown.h
 
 FORMS += \
