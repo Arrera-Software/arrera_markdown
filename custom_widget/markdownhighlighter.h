@@ -3,6 +3,7 @@
 
 #include <QSyntaxHighlighter>
 #include <QRegularExpression>
+#include <QMap>
 
 class MarkdownHighlighter : public QSyntaxHighlighter
 {
@@ -12,6 +13,7 @@ private:
     struct HighlightingRule {
         QRegularExpression pattern;
         QTextCharFormat format;
+        QMap<int, QTextCharFormat> capturingGroupFormats;
     };
     QVector<HighlightingRule> rules;
     void setupRules();
