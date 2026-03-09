@@ -217,7 +217,14 @@
          </widget>
         </item>
         <item>
-         <widget class="MarkdownEditor" name="plainTextEdit"/>
+         <widget class="MarkdownEditor" name="plainTextEdit">
+          <property name="font">
+           <font>
+            <family>Arial</family>
+            <pointsize>20</pointsize>
+           </font>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
