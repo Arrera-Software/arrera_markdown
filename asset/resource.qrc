@@ -26,5 +26,7 @@
         <file>left.png</file>
         <file>right.png</file>
         <file>tableau.png</file>
+        <file>code.png</file>
+        <file>ligne.png</file>
     </qresource>
 </RCC>
