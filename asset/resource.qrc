@@ -17,5 +17,8 @@
         <file>add_light.png</file>
         <file>space_dark.png</file>
         <file>space_light.png</file>
+        <file>h3.png</file>
+        <file>h2.png</file>
+        <file>h1.png</file>
     </qresource>
 </RCC>
