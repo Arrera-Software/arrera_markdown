@@ -71,24 +71,35 @@ void MarkdownHighlighter::setupRules() {
     rule.capturingGroupFormats.insert(3, transparentFormat);
     rules.append(rule);
 
-    QTextCharFormat tableFormat;
-    tableFormat.setForeground(Qt::darkGray);
-    tableFormat.setFontWeight(QFont::Bold);
+    // --- GESTION DES TABLEAUX ---
+    // Pour avoir un "vrai" tableau aligné, il faut impérativement une police Monospace
+    // et on ajoute un fond pour l'effet visuel de bloc.
+    QTextCharFormat tableBaseFormat;
+    tableBaseFormat.setFontFixedPitch(true);
+    tableBaseFormat.setFontFamilies({QStringLiteral("Courier New"), QStringLiteral("Monospace")});
+    tableBaseFormat.setBackground(QColor("#f9f9f9"));
+    tableBaseFormat.setForeground(Qt::black);
+
+    // 1. Appliquer le format de base (Monospace + Fond) à toute ligne de tableau
+    rule.pattern = QRegularExpression("^\\s*\\|.*\\|\\s*$");
+    rule.format = tableBaseFormat;
+    rule.capturingGroupFormats.clear();
+    rules.append(rule);
+
+    // 2. Format spécifique pour les pipes '|' (Doit hériter de Monospace pour garder l'alignement)
+    QTextCharFormat pipeFormat = tableBaseFormat;
+    pipeFormat.setForeground(Qt::darkMagenta);
+    pipeFormat.setFontWeight(QFont::Bold);
     rule.pattern = QRegularExpression("\\|");
-    rule.format = tableFormat;
+    rule.format = pipeFormat;
     rule.capturingGroupFormats.clear();
     rules.append(rule);
 
-    QTextCharFormat headerFormat;
-    headerFormat.setForeground(Qt::darkMagenta);
-    headerFormat.setFontWeight(QFont::Bold);
-    rule.pattern = QRegularExpression("^\\s*\\|?[\\s\\-:]+\\|[\\s\\-:\\|]*$");
-    rule.format = tableFormat;
-    rule.capturingGroupFormats.clear();
-    rules.append(rule);
-
-    rule.pattern = QRegularExpression("^\\|.*\\|$");
-    rule.format = headerFormat;
+    // 3. Format pour la ligne de séparation (ex: |---|---|)
+    QTextCharFormat separatorFormat = tableBaseFormat;
+    separatorFormat.setForeground(Qt::gray);
+    rule.pattern = QRegularExpression("^\\s*\\|[\\s\\-:\\|]+\\|\\s*$");
+    rule.format = separatorFormat;
     rule.capturingGroupFormats.clear();
     rules.append(rule);
 
