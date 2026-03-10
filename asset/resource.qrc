@@ -23,5 +23,7 @@
         <file>italic.png</file>
         <file>gras.png</file>
         <file>souligner.png</file>
+        <file>left.png</file>
+        <file>right.png</file>
     </qresource>
 </RCC>
