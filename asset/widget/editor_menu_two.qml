@@ -18,20 +18,24 @@ Item {
             Material.accent: Material.BlueGrey
             //onClicked: main.open_web_page("https://arrera-software.fr/")
         }
+
+        Button { // Code
+            icon.source:"qrc:/icone_gui/code.png"
+            Material.accent: Material.BlueGrey
+            //onClicked: main.open_web_page("https://arrera-software.fr/")
+        }
+
+        Button { // Ligne
+            icon.source:"qrc:/icone_gui/ligne.png"
+            Material.accent: Material.BlueGrey
+            //onClicked: main.open_web_page("https://arrera-software.fr/")
+        }
         /*
 
 
-        Button { // H3
-            icon.source:"qrc:/icone_gui/h3.png"
-            Material.accent: Material.BlueGrey
-            //onClicked: main.open_web_page("https://arrera-software.fr/")
-        }
 
-        Button { // B
-            icon.source:"qrc:/icone_gui/gras.png"
-            Material.accent: Material.BlueGrey
-            //onClicked: main.open_web_page("https://arrera-software.fr/")
-        }
+
+
 
         Button { // I
             icon.source:"qrc:/icone_gui/italic.png"
