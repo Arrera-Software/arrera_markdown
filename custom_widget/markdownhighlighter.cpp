@@ -104,11 +104,16 @@ void MarkdownHighlighter::setupRules() {
     rules.append(rule);
 
     QTextCharFormat lineFormat;
-    lineFormat.setForeground(Qt::gray);
+    lineFormat.setForeground(Qt::transparent);
+    lineFormat.setUnderlineStyle(QTextCharFormat::SingleUnderline);
+    lineFormat.setUnderlineColor(Qt::gray);
     lineFormat.setFontWeight(QFont::Bold);
-    rule.pattern = QRegularExpression("^(\\s*[-*_\\s]){3,}\\s*$");
-    rule.format = lineFormat;
+    lineFormat.setFontLetterSpacingType(QFont::AbsoluteSpacing);
+    lineFormat.setFontLetterSpacing(10000);
+    rule.pattern = QRegularExpression("^(\\s*(?:[-*_\\s]){2,})([-*_\\s])\\s*$");
     rule.capturingGroupFormats.clear();
+    rule.capturingGroupFormats.insert(1, transparentFormat);
+    rule.capturingGroupFormats.insert(2, lineFormat);
     rules.append(rule);
 
     QTextCharFormat linkFormat;
