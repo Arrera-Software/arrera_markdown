@@ -7,17 +7,19 @@ Item {
     RowLayout{
         Layout.fillWidth: true
 
-        Button { // H1
+        Button { // <
             icon.source:"qrc:/icone_gui/right.png"
             Material.accent: Material.BlueGrey
             onClicked: main.change_page_editor(1)
         }
-        /*
-        Button { // h2
-            icon.source:"qrc:/icone_gui/h2.png"
+
+        Button { // Tableau
+            icon.source:"qrc:/icone_gui/tableau.png"
             Material.accent: Material.BlueGrey
             //onClicked: main.open_web_page("https://arrera-software.fr/")
         }
+        /*
+
 
         Button { // H3
             icon.source:"qrc:/icone_gui/h3.png"
