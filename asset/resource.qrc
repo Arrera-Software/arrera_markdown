@@ -20,5 +20,8 @@
         <file>h3.png</file>
         <file>h2.png</file>
         <file>h1.png</file>
+        <file>italic.png</file>
+        <file>gras.png</file>
+        <file>souligner.png</file>
     </qresource>
 </RCC>
