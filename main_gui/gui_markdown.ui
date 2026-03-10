@@ -201,7 +201,7 @@
             </widget>
            </item>
            <item>
-            <widget class="QQuickWidget" name="quickWidget">
+            <widget class="QQuickWidget" name="qwidget_menu_editor">
              <property name="resizeMode">
               <enum>QQuickWidget::ResizeMode::SizeRootObjectToView</enum>
              </property>
