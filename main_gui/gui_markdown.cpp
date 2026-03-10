@@ -23,6 +23,7 @@ gui_markdown::gui_markdown(QWidget *parent)
     ui->main_quick_widget->rootContext()->setContextProperty("mainWindow", this);
     ui->about_qwidget_setting->rootContext()->setContextProperty("main", this);
     ui->setting_qwidget_menu->rootContext()->setContextProperty("main", this);
+    ui->qwidget_menu_editor->rootContext()->setContextProperty("main", this);
 
     #ifdef Q_OS_MAC
     QPixmap icon(":/icone/icon_mac.png");
@@ -53,6 +54,7 @@ void gui_markdown::view_espace(){
 
 void gui_markdown::create_document(){
     ui->arrera_hub->setCurrentIndex(index_editor);
+    change_page_editor(1);
 }
 
 void gui_markdown::back_setting(){
@@ -65,6 +67,26 @@ void gui_markdown::back_about(){
 
 void gui_markdown::view_setting(){
     ui->arrera_hub->setCurrentIndex(index_setting);
+}
+
+void gui_markdown::change_page_editor(int n){
+    QString file;
+
+    switch (n){
+    case 1:
+        file = "qrc:/qml/widget/editor_menu_one.qml";
+        break;
+    case 2:
+        file = "qrc:/qml/widget/editor_menu_two.qml";
+        break;
+    default:
+        file = "qrc:/qml/widget/editor_menu_one.qml";
+        break;
+    }
+
+    QMetaObject::invokeMethod(ui->qwidget_menu_editor, [=](){
+        ui->qwidget_menu_editor->setSource(QUrl(file));
+    }, Qt::QueuedConnection);
 }
 
 void gui_markdown::on_tf_btn_icon_clicked()

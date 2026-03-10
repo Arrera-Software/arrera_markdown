@@ -30,6 +30,7 @@ public:
     Q_INVOKABLE void open_web_page(QString p);
     Q_INVOKABLE void view_setting();
     Q_INVOKABLE void back_setting();
+    Q_INVOKABLE void change_page_editor(int n);
 
 private slots:
     void on_tf_btn_icon_clicked();
