@@ -30,30 +30,5 @@ Item {
             Material.accent: Material.BlueGrey
             //onClicked: main.open_web_page("https://arrera-software.fr/")
         }
-        /*
-
-
-
-
-
-
-        Button { // I
-            icon.source:"qrc:/icone_gui/italic.png"
-            Material.accent: Material.BlueGrey
-            //onClicked: main.open_web_page("https://arrera-software.fr/")
-        }
-
-        Button { // S
-            icon.source:"qrc:/icone_gui/souligner.png"
-            Material.accent: Material.BlueGrey
-            //onClicked: main.open_web_page("https://arrera-software.fr/")
-        }
-
-        Button { // >
-            icon.source:"qrc:/icone_gui/left.png"
-            Material.accent: Material.BlueGrey
-            //onClicked: main.open_web_page("https://arrera-software.fr/")
-        }
-        */
     }
 }
