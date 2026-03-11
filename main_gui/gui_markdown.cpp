@@ -86,6 +86,7 @@ void gui_markdown::view_setting(){
     ui->arrera_hub->setCurrentIndex(index_setting);
     ui->save_space->setCurrentIndex(index_setting_space_welcome);
     ui->entry_name_space->clear();
+    update_label_view_space();
 }
 
 void gui_markdown::change_page_editor(int n){
@@ -170,6 +171,7 @@ void gui_markdown::add_workspace(){
         QMessageBox::information(this, "Arrera Markdown",
                                  "L'espace "+name+" a bien ete ajouter");
         change_page_setting_space(1);
+        update_label_view_space();
         return;
     }else{
         QMessageBox::critical(this,"Arrera Markdown",
@@ -177,4 +179,22 @@ void gui_markdown::add_workspace(){
         change_page_setting_space(1);
         return;
     }
+}
+
+void gui_markdown::update_label_view_space(){
+    QStringList space = setting_conf.getSectionKeys("workspace");
+
+    if (space.isEmpty()){
+        ui->label_setting_liste_space->setText("Pas d'espace de travail enregister");
+        return;
+    }
+
+    QString name_space,directory_space,text_space;
+
+    for (int i = 0; i < space.size(); ++i){
+        name_space = space[i];
+        directory_space = setting_conf.getValeur("workspace",name_space);
+        text_space = text_space+"- "+name_space+" : "+directory_space+"\n";
+    }
+    ui->label_setting_liste_space->setText(text_space);
 }
