@@ -13,16 +13,21 @@ gui_markdown::gui_markdown(QWidget *parent)
     index_setting = ui->arrera_hub->indexOf(ui->setting);
     index_editor = ui->arrera_hub->indexOf(ui->editor);
 
-    index_setting_main = ui->markdown_setting->indexOf(ui->setting_main);
-    index_setting_state = ui->markdown_setting->indexOf(ui->setting_template);
-    index_setting_template = ui->markdown_setting->indexOf(ui->setting_template);
+    index_setting_space_welcome = ui->save_space->indexOf(ui->welcome_space);
+    index_setting_add_space = ui->save_space->indexOf(ui->add_space);
+    index_setting_del_space = ui->save_space->indexOf(ui->suppr_space);
 
     ui->arrera_hub->setCurrentIndex(index_main);
 
 
     ui->main_quick_widget->rootContext()->setContextProperty("mainWindow", this);
     ui->about_qwidget_setting->rootContext()->setContextProperty("main", this);
-    ui->setting_qwidget_menu->rootContext()->setContextProperty("main", this);
+
+    ui->qwidget_space_welcome->rootContext()->setContextProperty("main", this);
+    ui->qwidget_space_add->rootContext()->setContextProperty("main", this);
+    ui->qwidget_space_del->rootContext()->setContextProperty("main", this);
+    ui->qwidget_setting->rootContext()->setContextProperty("main", this);
+
     ui->qwidget_menu_editor->rootContext()->setContextProperty("main", this);
 
     #ifdef Q_OS_MAC
@@ -67,6 +72,7 @@ void gui_markdown::back_about(){
 
 void gui_markdown::view_setting(){
     ui->arrera_hub->setCurrentIndex(index_setting);
+    ui->save_space->setCurrentIndex(index_setting_space_welcome);
 }
 
 void gui_markdown::change_page_editor(int n){
@@ -87,6 +93,23 @@ void gui_markdown::change_page_editor(int n){
     QMetaObject::invokeMethod(ui->qwidget_menu_editor, [=](){
         ui->qwidget_menu_editor->setSource(QUrl(file));
     }, Qt::QueuedConnection);
+}
+
+void gui_markdown::change_page_setting_space(int n){
+    switch (n){
+    case 1:
+        ui->save_space->setCurrentIndex(index_setting_space_welcome);
+        break;
+    case 2:
+        ui->save_space->setCurrentIndex(index_setting_add_space);
+        break;
+    case 3:
+        ui->save_space->setCurrentIndex(index_setting_del_space);
+        break;
+    default:
+        ui->save_space->setCurrentIndex(index_setting_space_welcome);
+        break;
+    }
 }
 
 void gui_markdown::on_tf_btn_icon_clicked()
