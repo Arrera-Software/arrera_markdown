@@ -17,6 +17,9 @@ gui_markdown::gui_markdown(QWidget *parent)
     index_setting_add_space = ui->save_space->indexOf(ui->add_space);
     index_setting_del_space = ui->save_space->indexOf(ui->suppr_space);
 
+    index_welcome_space = ui->welcome_arrera_hub->indexOf(ui->space_welcome);
+    index_welcome_template = ui->welcome_arrera_hub->indexOf(ui->template_welcome);
+
     ui->arrera_hub->setCurrentIndex(index_main);
 
 
@@ -52,11 +55,13 @@ gui_markdown::gui_markdown(QWidget *parent)
     if (setting_conf.getSectionKeys("workspace").isEmpty()){
         QMessageBox::information(this, "Arrera Markdown",
                                  "Aucun espace de travail est enregistré");
+        ui->welcome_arrera_hub->setCurrentIndex(index_welcome_template);
     }
 
     if (file_conf_just_created){
         ui->arrera_hub->setCurrentIndex(index_setting);
         ui->save_space->setCurrentIndex(index_setting_space_welcome);
+        ui->welcome_arrera_hub->setCurrentIndex(index_welcome_template);
     }
 
     update_list_workspace_welcome();

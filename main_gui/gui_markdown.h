@@ -53,6 +53,7 @@ private:
     bool file_conf_just_created;
     int index_main,index_about,index_setting,index_editor;
     int index_setting_space_welcome,index_setting_add_space,index_setting_del_space;
+    int index_welcome_space,index_welcome_template;
     // Methode
     void update_label_view_space();
     void update_list_workspace_welcome();
