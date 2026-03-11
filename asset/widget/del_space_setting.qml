@@ -17,7 +17,7 @@ Item {
             Material.accent: Material.BlueGrey
             Material.primary: Material.BlueGrey
             Layout.alignment: Qt.AlignVCenter
-            // onClicked: main.change_page_setting_space(1);
+            onClicked: main.del_workspace();
         }
 
         Item {

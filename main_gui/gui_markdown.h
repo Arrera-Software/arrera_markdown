@@ -38,6 +38,7 @@ public:
 
     // Fontion des parametre
     Q_INVOKABLE void add_workspace();
+    Q_INVOKABLE void del_workspace();
 
 private slots:
     void on_tf_btn_icon_clicked();

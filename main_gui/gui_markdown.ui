@@ -394,7 +394,7 @@
                   </spacer>
                  </item>
                  <item>
-                  <widget class="QComboBox" name="list_del_space"/>
+                  <widget class="QComboBox" name="list_del_spac"/>
                  </item>
                  <item>
                   <spacer name="verticalSpacer_8">

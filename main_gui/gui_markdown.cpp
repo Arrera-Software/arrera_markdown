@@ -117,9 +117,22 @@ void gui_markdown::change_page_setting_space(int n){
     case 2:
         ui->save_space->setCurrentIndex(index_setting_add_space);
         break;
-    case 3:
+    case 3:{
+
+        QStringList list_workspace = setting_conf.getSectionKeys("workspace");
+
+        if (list_workspace.isEmpty()){
+            QMessageBox::information(this, "Arrera Markdown",
+                                     "Il n'y a pas d'espace de travail enregistrer");
+            ui->save_space->setCurrentIndex(index_setting_space_welcome);
+            break;
+        }
+
+        ui->list_del_spac->clear();
+        ui->list_del_spac->addItems(list_workspace);
         ui->save_space->setCurrentIndex(index_setting_del_space);
         break;
+    }
     default:
         ui->save_space->setCurrentIndex(index_setting_space_welcome);
         break;
@@ -197,4 +210,25 @@ void gui_markdown::update_label_view_space(){
         text_space = text_space+"- "+name_space+" : "+directory_space+"\n";
     }
     ui->label_setting_liste_space->setText(text_space);
+}
+
+void gui_markdown::del_workspace(){
+    QString valeur = ui->list_del_spac->currentText();
+
+    if (valeur.isEmpty()){
+        QMessageBox::critical(this,"Arrera Markdown",
+                              "Une erreur c'est produite");
+    }
+
+    if (setting_conf.supprValeur("workspace",valeur)){
+        QMessageBox::information(this, "Arrera Markdown",
+                                 "L'espace "+valeur+" a bien ete supprimer");
+    }else{
+        QMessageBox::critical(this,"Arrera Markdown",
+                              "Imposible de supprimer l'espace");
+    }
+
+    ui->save_space->setCurrentIndex(index_setting_space_welcome);
+
+    update_label_view_space();
 }
