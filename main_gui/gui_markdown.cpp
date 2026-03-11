@@ -141,3 +141,40 @@ void gui_markdown::on_tf_btn_icone_editor_clicked()
     ui->arrera_hub->setCurrentIndex(index_main);
 }
 
+void gui_markdown::add_workspace(){
+    QString name = ui->entry_name_space->text();
+    ui->entry_name_space->clear();
+
+    if (name.isEmpty()){
+        QMessageBox::critical(this,"Arrera Markdown",
+                              "Imposible d'ajouter un espace de travail sans nom");
+        change_page_editor(1);
+        return;
+    }
+
+    QString dir = QFileDialog::getExistingDirectory(
+        this,
+        tr("Espace de travail"),
+        QDir::homePath(),
+        QFileDialog::ShowDirsOnly
+        );
+
+    if (dir.isEmpty()){
+        QMessageBox::critical(this,"Arrera Markdown",
+                              "Aucun dossier selectionner");
+        change_page_setting_space(1);
+        return;
+    }
+
+    if (setting_conf.setValeur("workspace",name,dir)){
+        QMessageBox::information(this, "Arrera Markdown",
+                                 "L'espace "+name+" a bien ete ajouter");
+        change_page_setting_space(1);
+        return;
+    }else{
+        QMessageBox::critical(this,"Arrera Markdown",
+                              "L'espace n'a pas pu etre rajouter");
+        change_page_setting_space(1);
+        return;
+    }
+}

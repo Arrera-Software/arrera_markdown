@@ -7,6 +7,7 @@
 #include <QDesktopServices>
 #include <QUrl>
 #include <QMessageBox>
+#include <QFileDialog>
 #include "librairy/csetting.h"
 
 #include <iostream>
@@ -34,6 +35,9 @@ public:
     Q_INVOKABLE void back_setting();
     Q_INVOKABLE void change_page_editor(int n);
     Q_INVOKABLE void change_page_setting_space(int n);
+
+    // Fontion des parametre
+    Q_INVOKABLE void add_workspace();
 
 private slots:
     void on_tf_btn_icon_clicked();
