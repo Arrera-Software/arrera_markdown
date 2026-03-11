@@ -4,7 +4,7 @@
 
 gui_markdown::gui_markdown(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::gui_markdown)
+    , ui(new Ui::gui_markdown),setting_conf("arrera_markdown")
 {
     ui->setupUi(this);
 
@@ -46,6 +46,18 @@ gui_markdown::gui_markdown(QWidget *parent)
         QSize(512,512),
         Qt::KeepAspectRatio, Qt::SmoothTransformation));
     #endif
+
+    file_conf_just_created = setting_conf.getFileCreated();
+
+    if (setting_conf.getSectionKeys("workspace").isEmpty()){
+        QMessageBox::information(this, "Arrera Markdown",
+                                 "Aucun espace de travail est enregistré");
+    }
+
+    if (file_conf_just_created){
+        ui->arrera_hub->setCurrentIndex(index_setting);
+        ui->save_space->setCurrentIndex(index_setting_space_welcome);
+    }
 }
 
 gui_markdown::~gui_markdown()
@@ -73,6 +85,7 @@ void gui_markdown::back_about(){
 void gui_markdown::view_setting(){
     ui->arrera_hub->setCurrentIndex(index_setting);
     ui->save_space->setCurrentIndex(index_setting_space_welcome);
+    ui->entry_name_space->clear();
 }
 
 void gui_markdown::change_page_editor(int n){

@@ -6,6 +6,8 @@
 #include <QQmlContext>
 #include <QDesktopServices>
 #include <QUrl>
+#include <QMessageBox>
+#include "librairy/csetting.h"
 
 #include <iostream>
 using namespace std;
@@ -40,6 +42,8 @@ private slots:
 
 private:
     Ui::gui_markdown *ui;
+    CSetting setting_conf;
+    bool file_conf_just_created;
     int index_main,index_about,index_setting,index_editor;
     int index_setting_space_welcome,index_setting_add_space,index_setting_del_space;
 };

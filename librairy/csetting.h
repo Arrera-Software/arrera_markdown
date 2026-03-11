@@ -41,6 +41,8 @@ public:
 
     // Méthode pour supprimer une valeur
     bool supprValeur(const QString &section, const QString &key);
+
+    QStringList getSectionKeys(const QString &section) const;
 };
 
 #endif // CSETTING_H
