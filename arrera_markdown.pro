@@ -13,12 +13,14 @@ CONFIG += c++17
 SOURCES += \
     custom_widget/markdowneditor.cpp \
     custom_widget/markdownhighlighter.cpp \
+    librairy/csetting.cpp \
     main.cpp \
     main_gui/gui_markdown.cpp
 
 HEADERS += \
     custom_widget/markdowneditor.h \
     custom_widget/markdownhighlighter.h \
+    librairy/csetting.h \
     main_gui/gui_markdown.h
 
 FORMS += \
