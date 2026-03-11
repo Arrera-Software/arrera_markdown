@@ -7,6 +7,7 @@
 #include <QDesktopServices>
 #include <QUrl>
 #include <QMessageBox>
+#include <QFileSystemModel>
 #include <QFileDialog>
 #include "librairy/csetting.h"
 
@@ -48,10 +49,13 @@ private slots:
 private:
     Ui::gui_markdown *ui;
     CSetting setting_conf;
+    QFileSystemModel *model;
     bool file_conf_just_created;
     int index_main,index_about,index_setting,index_editor;
     int index_setting_space_welcome,index_setting_add_space,index_setting_del_space;
-
+    // Methode
     void update_label_view_space();
+    void update_list_workspace_welcome();
+    void update_tree_welcome();
 };
 #endif // GUI_MARKDOWN_H

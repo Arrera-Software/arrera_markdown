@@ -58,6 +58,16 @@ gui_markdown::gui_markdown(QWidget *parent)
         ui->arrera_hub->setCurrentIndex(index_setting);
         ui->save_space->setCurrentIndex(index_setting_space_welcome);
     }
+
+    update_list_workspace_welcome();
+
+    model = new QFileSystemModel(this);
+
+    update_tree_welcome();
+
+    connect(ui->list_view_workspace_welcome,&QComboBox::currentIndexChanged,this,[this]{
+        update_tree_welcome();
+    });
 }
 
 gui_markdown::~gui_markdown()
@@ -75,6 +85,7 @@ void gui_markdown::create_document(){
 }
 
 void gui_markdown::back_setting(){
+    update_list_workspace_welcome();
     ui->arrera_hub->setCurrentIndex(index_main);
 }
 
@@ -210,6 +221,38 @@ void gui_markdown::update_label_view_space(){
         text_space = text_space+"- "+name_space+" : "+directory_space+"\n";
     }
     ui->label_setting_liste_space->setText(text_space);
+}
+
+void gui_markdown::update_list_workspace_welcome(){
+    QStringList list_workspace = setting_conf.getSectionKeys("workspace");
+
+    if (list_workspace.isEmpty()){
+        return;
+    }
+
+    ui->list_view_workspace_welcome->clear();
+    ui->list_view_workspace_welcome->addItems(list_workspace);
+
+}
+
+void gui_markdown::update_tree_welcome(){
+    QString directory = setting_conf.getValeur("workspace",
+                                               ui->list_view_workspace_welcome->currentText());
+
+    if (directory.isEmpty()){
+        QMessageBox::critical(this,"Arrera Markdown","Erreur");
+    }else {
+        model->setRootPath(directory);
+        model->setNameFilters(QStringList() << "*.amd");
+        model->setNameFilterDisables(false);
+        model->setFilter(QDir::Files | QDir::AllDirs | QDir::NoDotAndDotDot);
+
+        ui->tree_view_file_space->setModel(model);
+        ui->tree_view_file_space->setRootIndex(model->index(directory));
+        ui->tree_view_file_space->hideColumn(1);
+        ui->tree_view_file_space->hideColumn(2);
+        ui->tree_view_file_space->hideColumn(3);
+    }
 }
 
 void gui_markdown::del_workspace(){
