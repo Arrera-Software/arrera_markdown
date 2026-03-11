@@ -15,6 +15,7 @@ Item {
 
             Button {
                 text: "Site internet"
+                highlighted: true
                 Material.accent: Material.BlueGrey
                 onClicked: main.open_web_page("https://arrera-software.fr/")
             }
@@ -23,6 +24,7 @@ Item {
 
             Button {
                 text: "Documentation"
+                highlighted: true
                 Material.accent: Material.BlueGrey
                 onClicked: main.open_web_page("https://arrera-software.fr/")
             }
@@ -31,6 +33,7 @@ Item {
 
             Button {
                 text: "Code source"
+                highlighted: true
                 Material.accent: Material.BlueGrey
                 onClicked: main.open_web_page("https://github.com/Arrera-Software/arrera_markdown")
             }
@@ -38,7 +41,8 @@ Item {
 
         Button {
             text: "Retour a l'acceuil"
-            Material.accent: Material.Blue
+            highlighted: true
+            Material.accent: Material.BlueGrey
             Material.primary: Material.Indigo
             Layout.fillWidth: true
             Layout.preferredHeight: 40
