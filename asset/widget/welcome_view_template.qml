@@ -50,7 +50,7 @@ Rectangle {
                         anchors.horizontalCenter: parent.horizontalCenter
 
                         Image {
-                            source: "qrc:/icone_gui/code.png"
+                            source: "qrc:/icone_gui/template_dark.png"
                             anchors.centerIn: parent
                             width: 35
                             height: 35

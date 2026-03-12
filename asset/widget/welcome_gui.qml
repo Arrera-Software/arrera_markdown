@@ -31,7 +31,7 @@ Item {
         }
 
         Button {
-            icon.source: "qrc:/icone_gui/space_light.png"
+            icon.source: "qrc:/icone_gui/template_light.png"
             Layout.alignment: Qt.AlignHCenter
             highlighted: true
             Material.accent: Material.BlueGrey
