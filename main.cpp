@@ -14,10 +14,10 @@ int main(int argc, char *argv[])
         qputenv("QT_QPA_PLATFORMTHEME", "xdgdesktopportal");
     #endif
 
+    QQuickStyle::setStyle("Material");
+
     QApplication a(argc, argv);
     gui_markdown w;
-
-    QQuickStyle::setStyle("Material");
 
     #ifdef Q_OS_LINUX
         w.setWindowIcon(QIcon(":/icone/icon_linux.png"));
