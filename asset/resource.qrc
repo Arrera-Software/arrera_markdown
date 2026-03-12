@@ -33,5 +33,7 @@
         <file>tableau.png</file>
         <file>code.png</file>
         <file>ligne.png</file>
+        <file>template_dark.png</file>
+        <file>template_light.png</file>
     </qresource>
 </RCC>
