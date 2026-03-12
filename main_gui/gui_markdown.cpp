@@ -85,14 +85,15 @@ gui_markdown::~gui_markdown()
 }
 
 void gui_markdown::view_espace(){
+    QStringList w =  setting_conf.getSectionKeys("workspace");
+
     update_list_workspace_welcome();
 
-    if (setting_conf.getSectionKeys("workspace").isEmpty()){
+    if (w.isEmpty()){
         ui->welcome_arrera_hub->setCurrentIndex(index_welcome_add);
+    }else{
+        ui->welcome_arrera_hub->setCurrentIndex(index_welcome_space);
     }
-
-    ui->welcome_arrera_hub->setCurrentIndex(index_welcome_space);
-
 }
 
 void gui_markdown::view_template(){
