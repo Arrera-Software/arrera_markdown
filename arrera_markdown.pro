@@ -15,15 +15,18 @@ SOURCES += \
     custom_widget/markdownhighlighter.cpp \
     librairy/csetting.cpp \
     main.cpp \
+    main_gui/gui_create.cpp \
     main_gui/gui_markdown.cpp
 
 HEADERS += \
     custom_widget/markdowneditor.h \
     custom_widget/markdownhighlighter.h \
     librairy/csetting.h \
+    main_gui/gui_create.h \
     main_gui/gui_markdown.h
 
 FORMS += \
+    main_gui/gui_create.ui \
     main_gui/gui_markdown.ui
 
 # Default rules for deployment.
