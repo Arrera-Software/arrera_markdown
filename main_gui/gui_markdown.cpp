@@ -17,6 +17,7 @@ gui_markdown::gui_markdown(QWidget *parent)
     index_setting_add_space = ui->save_space->indexOf(ui->add_space);
     index_setting_del_space = ui->save_space->indexOf(ui->suppr_space);
 
+    index_welcome_add = ui->welcome_arrera_hub->indexOf(ui->add_welcome);
     index_welcome_space = ui->welcome_arrera_hub->indexOf(ui->space_welcome);
     index_welcome_template = ui->welcome_arrera_hub->indexOf(ui->template_welcome);
 
@@ -30,6 +31,7 @@ gui_markdown::gui_markdown(QWidget *parent)
     ui->qwidget_space_add->rootContext()->setContextProperty("main", this);
     ui->qwidget_space_del->rootContext()->setContextProperty("main", this);
     ui->qwidget_setting->rootContext()->setContextProperty("main", this);
+    ui->qwidget_add_welcome->rootContext()->setContextProperty("main", this);
 
     ui->qwidget_menu_editor->rootContext()->setContextProperty("main", this);
 
@@ -55,13 +57,13 @@ gui_markdown::gui_markdown(QWidget *parent)
     if (setting_conf.getSectionKeys("workspace").isEmpty()){
         QMessageBox::information(this, "Arrera Markdown",
                                  "Aucun espace de travail est enregistré");
-        ui->welcome_arrera_hub->setCurrentIndex(index_welcome_template);
+        ui->welcome_arrera_hub->setCurrentIndex(index_welcome_add);
     }
 
     if (file_conf_just_created){
         ui->arrera_hub->setCurrentIndex(index_setting);
         ui->save_space->setCurrentIndex(index_setting_space_welcome);
-        ui->welcome_arrera_hub->setCurrentIndex(index_welcome_template);
+        ui->welcome_arrera_hub->setCurrentIndex(index_welcome_add);
     }
 
     update_list_workspace_welcome();
@@ -168,6 +170,7 @@ void gui_markdown::open_web_page(QString p){
 
 void gui_markdown::on_tf_btn_icone_editor_clicked()
 {
+    update_list_workspace_welcome();
     ui->arrera_hub->setCurrentIndex(index_main);
 }
 

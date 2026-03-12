@@ -12,6 +12,7 @@
         <file>widget/add_space_setting.qml</file>
         <file>widget/del_space_setting.qml</file>
         <file>widget/setting_center_page.qml</file>
+        <file>widget/welcome_add.qml</file>
     </qresource>
     <qresource prefix="/icone_gui">
         <file>settings_dark.png</file>

@@ -140,7 +140,7 @@
           <item>
            <widget class="QStackedWidget" name="welcome_arrera_hub">
             <property name="currentIndex">
-             <number>1</number>
+             <number>2</number>
             </property>
             <widget class="QWidget" name="template_welcome"/>
             <widget class="QWidget" name="space_welcome">
@@ -167,6 +167,22 @@
               </item>
               <item>
                <widget class="QTreeView" name="tree_view_file_space"/>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="add_welcome">
+             <layout class="QVBoxLayout" name="verticalLayout_12">
+              <item>
+               <widget class="QQuickWidget" name="qwidget_add_welcome">
+                <property name="resizeMode">
+                 <enum>QQuickWidget::ResizeMode::SizeRootObjectToView</enum>
+                </property>
+                <property name="source">
+                 <url>
+                  <string>qrc:/qml/widget/welcome_add.qml</string>
+                 </url>
+                </property>
+               </widget>
               </item>
              </layout>
             </widget>
