@@ -20,8 +20,6 @@ private:
     bool fileCreated;
     QString emplacementFile;
     QSettings *settings;
-    // Methode private
-    int checkOS();
 
 public:
     // Constructeur de base
@@ -43,6 +41,8 @@ public:
     bool supprValeur(const QString &section, const QString &key);
 
     QStringList getSectionKeys(const QString &section) const;
+
+    int checkOS();
 };
 
 #endif // CSETTING_H

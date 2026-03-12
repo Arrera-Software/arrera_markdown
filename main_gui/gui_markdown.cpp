@@ -8,6 +8,15 @@ gui_markdown::gui_markdown(QWidget *parent)
 {
     ui->setupUi(this);
 
+    file_conf_just_created = setting_conf.getFileCreated();
+
+    if (file_conf_just_created){
+        ui->arrera_hub->setCurrentIndex(index_setting);
+        ui->save_space->setCurrentIndex(index_setting_space_welcome);
+        ui->welcome_arrera_hub->setCurrentIndex(index_welcome_add);
+        copy_template();
+    }
+
     index_main = ui->arrera_hub->indexOf(ui->main);
     index_about = ui->arrera_hub->indexOf(ui->about);
     index_setting = ui->arrera_hub->indexOf(ui->setting);
@@ -35,6 +44,12 @@ gui_markdown::gui_markdown(QWidget *parent)
 
     ui->qwidget_menu_editor->rootContext()->setContextProperty("main", this);
 
+    ui->qwidget_view_template->rootContext()->setContextProperty("osTemplatePath",
+                                                                 QUrl::fromLocalFile(get_template_folder()));
+
+    ui->qwidget_view_template->setSource(QUrl(QStringLiteral("qrc:/qml/widget/welcome_view_template.qml")));
+    ui->qwidget_view_template->setResizeMode(QQuickWidget::SizeRootObjectToView);
+
     #ifdef Q_OS_MAC
     QPixmap icon(":/icone/icon_mac.png");
     ui->tf_btn_icon->setIcon(icon.scaled(50, 50, Qt::KeepAspectRatio,
@@ -51,19 +66,6 @@ gui_markdown::gui_markdown(QWidget *parent)
         QSize(512,512),
         Qt::KeepAspectRatio, Qt::SmoothTransformation));
     #endif
-
-    file_conf_just_created = setting_conf.getFileCreated();
-
-    if (setting_conf.getSectionKeys("workspace").isEmpty()){
-        QMessageBox::information(this, "Arrera Markdown",
-                                 "Aucun espace de travail est enregistré");
-    }
-
-    if (file_conf_just_created){
-        ui->arrera_hub->setCurrentIndex(index_setting);
-        ui->save_space->setCurrentIndex(index_setting_space_welcome);
-        ui->welcome_arrera_hub->setCurrentIndex(index_welcome_add);
-    }
 
     update_list_workspace_welcome();
     ui->welcome_arrera_hub->setCurrentIndex(index_welcome_add);
@@ -83,8 +85,14 @@ gui_markdown::~gui_markdown()
 }
 
 void gui_markdown::view_espace(){
-    ui->welcome_arrera_hub->setCurrentIndex(index_welcome_space);
     update_list_workspace_welcome();
+
+    if (setting_conf.getSectionKeys("workspace").isEmpty()){
+        ui->welcome_arrera_hub->setCurrentIndex(index_welcome_add);
+    }
+
+    ui->welcome_arrera_hub->setCurrentIndex(index_welcome_space);
+
 }
 
 void gui_markdown::view_template(){
@@ -266,6 +274,58 @@ void gui_markdown::update_tree_welcome(){
         ui->tree_view_file_space->hideColumn(2);
         ui->tree_view_file_space->hideColumn(3);
     }
+}
+
+QString gui_markdown::get_template_folder(){
+    int os = setting_conf.checkOS();
+
+    if (os == 3 || os == 2) {
+        QString homePath = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
+        return homePath + "/.config/arrera_markdown/template";
+    }
+    else if (os == 1) {
+        QString appDataPath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
+        return appDataPath + "/template";
+    }
+    else {
+        return "";
+    }
+}
+
+bool gui_markdown::copy_template(){
+    QString targetFolder = get_template_folder();
+
+    QDir dir;
+    if (!dir.exists(targetFolder)) {
+        if (!dir.mkpath(targetFolder)) {
+            return false;
+        }
+    }
+
+    QString resourcePrefix = ":/template";
+    QDirIterator it(resourcePrefix, QDirIterator::Subdirectories);
+
+    while (it.hasNext()) {
+        it.next();
+        QFileInfo fileInfo = it.fileInfo();
+        if (fileInfo.isFile()) {
+            QString relativePath = fileInfo.absoluteFilePath().mid(resourcePrefix.length()).replace("template/","");
+            QString destPath = targetFolder + relativePath;
+
+            QDir().mkpath(QFileInfo(destPath).absolutePath());
+
+            if (!QFile::exists(destPath)) {
+                if (QFile::copy(fileInfo.absoluteFilePath(), destPath)) {
+                    QFile::setPermissions(destPath,
+                                          QFileDevice::ReadOwner | QFileDevice::WriteOwner |
+                                              QFileDevice::ReadUser  | QFileDevice::WriteUser
+                                          );
+                }
+            }
+        }
+    }
+
+    return true;
 }
 
 void gui_markdown::del_workspace(){

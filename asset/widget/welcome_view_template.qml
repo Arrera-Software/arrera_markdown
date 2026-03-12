@@ -7,7 +7,7 @@ Rectangle {
     id: root
     anchors.fill: parent
 
-    property string templatePath: "file:///Users/baptistep/Desktop/test_template"
+    property string templatePath: typeof osTemplatePath !== "undefined" ? osTemplatePath : ""
 
     FolderListModel {
         id: folderModel

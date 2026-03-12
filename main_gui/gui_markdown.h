@@ -10,6 +10,7 @@
 #include <QFileSystemModel>
 #include <QFileDialog>
 #include "librairy/csetting.h"
+#include <QDirIterator>
 
 #include <iostream>
 using namespace std;
@@ -59,5 +60,9 @@ private:
     void update_label_view_space();
     void update_list_workspace_welcome();
     void update_tree_welcome();
+    bool copy_template();
+
+    QString get_template_folder();
+
 };
 #endif // GUI_MARKDOWN_H

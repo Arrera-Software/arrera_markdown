@@ -149,11 +149,6 @@
                 <property name="resizeMode">
                  <enum>QQuickWidget::ResizeMode::SizeRootObjectToView</enum>
                 </property>
-                <property name="source">
-                 <url>
-                  <string>qrc:/qml/widget/welcome_view_template.qml</string>
-                 </url>
-                </property>
                </widget>
               </item>
              </layout>
