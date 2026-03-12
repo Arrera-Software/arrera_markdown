@@ -29,6 +29,7 @@ public:
     ~gui_markdown();
 
     Q_INVOKABLE void view_espace();
+    Q_INVOKABLE void view_template();
     Q_INVOKABLE void create_document();
     Q_INVOKABLE void back_about();
     Q_INVOKABLE void open_web_page(QString p);

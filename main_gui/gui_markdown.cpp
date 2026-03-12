@@ -24,7 +24,7 @@ gui_markdown::gui_markdown(QWidget *parent)
     ui->arrera_hub->setCurrentIndex(index_main);
 
 
-    ui->main_quick_widget->rootContext()->setContextProperty("mainWindow", this);
+    ui->main_quick_widget->rootContext()->setContextProperty("main", this);
     ui->about_qwidget_setting->rootContext()->setContextProperty("main", this);
 
     ui->qwidget_space_welcome->rootContext()->setContextProperty("main", this);
@@ -57,7 +57,6 @@ gui_markdown::gui_markdown(QWidget *parent)
     if (setting_conf.getSectionKeys("workspace").isEmpty()){
         QMessageBox::information(this, "Arrera Markdown",
                                  "Aucun espace de travail est enregistré");
-        ui->welcome_arrera_hub->setCurrentIndex(index_welcome_add);
     }
 
     if (file_conf_just_created){
@@ -67,6 +66,7 @@ gui_markdown::gui_markdown(QWidget *parent)
     }
 
     update_list_workspace_welcome();
+    ui->welcome_arrera_hub->setCurrentIndex(index_welcome_add);
 
     model = new QFileSystemModel(this);
 
@@ -83,7 +83,12 @@ gui_markdown::~gui_markdown()
 }
 
 void gui_markdown::view_espace(){
-    cout << "Espace" << endl;
+    ui->welcome_arrera_hub->setCurrentIndex(index_welcome_space);
+    update_list_workspace_welcome();
+}
+
+void gui_markdown::view_template(){
+    ui->welcome_arrera_hub->setCurrentIndex(index_welcome_template);
 }
 
 void gui_markdown::create_document(){

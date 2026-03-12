@@ -18,7 +18,7 @@ Item {
             highlighted: true
             Material.accent: Material.BlueGrey
             Material.primary: Material.BlueGrey
-            onClicked: mainWindow.create_document()
+            onClicked: main.create_document()
         }
 
         Button {
@@ -27,7 +27,16 @@ Item {
             highlighted: true
             Material.accent: Material.BlueGrey
             Material.primary: Material.BlueGrey
-            onClicked: mainWindow.view_espace()
+            onClicked: main.view_espace()
+        }
+
+        Button {
+            icon.source: "qrc:/icone_gui/space_light.png"
+            Layout.alignment: Qt.AlignHCenter
+            highlighted: true
+            Material.accent: Material.BlueGrey
+            Material.primary: Material.BlueGrey
+            onClicked: main.view_template()
         }
 
 
