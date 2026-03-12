@@ -4,7 +4,7 @@
 
 gui_markdown::gui_markdown(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::gui_markdown),setting_conf("arrera_markdown")
+    , ui(new Ui::gui_markdown),setting_conf("arrera_markdown"),create_ui(setting_conf)
 {
     ui->setupUi(this);
 
@@ -101,7 +101,7 @@ void gui_markdown::view_template(){
 }
 
 void gui_markdown::create_document(){
-    ui->arrera_hub->setCurrentIndex(index_editor);
+    create_ui.setVisible(true);
     change_page_editor(1);
 }
 

@@ -9,7 +9,7 @@
 #include <QMessageBox>
 #include <QFileSystemModel>
 #include <QFileDialog>
-#include "librairy/csetting.h"
+#include "main_gui/gui_create.h"
 #include <QDirIterator>
 
 #include <iostream>
@@ -52,6 +52,9 @@ private:
     Ui::gui_markdown *ui;
     CSetting setting_conf;
     QFileSystemModel *model;
+
+    gui_create create_ui;
+
     bool file_conf_just_created;
     int index_main,index_about,index_setting,index_editor;
     int index_setting_space_welcome,index_setting_add_space,index_setting_del_space;
