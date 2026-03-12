@@ -50,7 +50,7 @@ Item {
             highlighted: true
             Material.accent: Material.BlueGrey
             Material.primary: Material.BlueGrey
-            onClicked: mainWindow.view_setting()
+            onClicked: main.view_setting()
         }
     }
 }
