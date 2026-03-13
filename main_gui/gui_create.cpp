@@ -22,9 +22,27 @@ gui_create::~gui_create()
 
 void gui_create::setVisible(bool visible){
     QWidget::setVisible(visible);
+
     if (visible){
         ui->entry_name->clear();
+        QStringList space,ftemplate;
+
+        space.append("Autre");
+        space.append(setting_conf.getSectionKeys("workspace"));
+
+        ftemplate.append("Aucun template");
+        ftemplate.append(liste_template);
+
+        ui->list_space_create->clear();
+        ui->list_template->clear();
+
+        ui->list_space_create->addItems(space);
+        ui->list_template->addItems(ftemplate);
     }
+}
+
+void gui_create::setListTemplate(QStringList liste){
+    liste_template.append(liste);
 }
 
 void gui_create::on_btn_create_clicked()

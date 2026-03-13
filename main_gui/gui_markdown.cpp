@@ -4,7 +4,8 @@
 
 gui_markdown::gui_markdown(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::gui_markdown),setting_conf("arrera_markdown"),create_ui(setting_conf)
+    , ui(new Ui::gui_markdown),setting_conf("arrera_markdown"),create_ui(setting_conf),
+    template_manager(setting_conf)
 {
     ui->setupUi(this);
 
@@ -14,7 +15,6 @@ gui_markdown::gui_markdown(QWidget *parent)
         ui->arrera_hub->setCurrentIndex(index_setting);
         ui->save_space->setCurrentIndex(index_setting_space_welcome);
         ui->welcome_arrera_hub->setCurrentIndex(index_welcome_add);
-        copy_template();
     }
 
     index_main = ui->arrera_hub->indexOf(ui->main);
@@ -45,7 +45,8 @@ gui_markdown::gui_markdown(QWidget *parent)
     ui->qwidget_menu_editor->rootContext()->setContextProperty("main", this);
 
     ui->qwidget_view_template->rootContext()->setContextProperty("osTemplatePath",
-                                                                 QUrl::fromLocalFile(get_template_folder()));
+                                                                 QUrl::fromLocalFile(
+                                                                     template_manager.get_template_folder()));
 
     ui->qwidget_view_template->setSource(QUrl(QStringLiteral("qrc:/qml/widget/welcome_view_template.qml")));
     ui->qwidget_view_template->setResizeMode(QQuickWidget::SizeRootObjectToView);
@@ -101,6 +102,7 @@ void gui_markdown::view_template(){
 }
 
 void gui_markdown::create_document(){
+    create_ui.setListTemplate(template_manager.get_list_template());
     create_ui.setVisible(true);
     change_page_editor(1);
 }
@@ -275,58 +277,6 @@ void gui_markdown::update_tree_welcome(){
         ui->tree_view_file_space->hideColumn(2);
         ui->tree_view_file_space->hideColumn(3);
     }
-}
-
-QString gui_markdown::get_template_folder(){
-    int os = setting_conf.checkOS();
-
-    if (os == 3 || os == 2) {
-        QString homePath = QStandardPaths::writableLocation(QStandardPaths::HomeLocation);
-        return homePath + "/.config/arrera_markdown/template";
-    }
-    else if (os == 1) {
-        QString appDataPath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
-        return appDataPath + "/template";
-    }
-    else {
-        return "";
-    }
-}
-
-bool gui_markdown::copy_template(){
-    QString targetFolder = get_template_folder();
-
-    QDir dir;
-    if (!dir.exists(targetFolder)) {
-        if (!dir.mkpath(targetFolder)) {
-            return false;
-        }
-    }
-
-    QString resourcePrefix = ":/template";
-    QDirIterator it(resourcePrefix, QDirIterator::Subdirectories);
-
-    while (it.hasNext()) {
-        it.next();
-        QFileInfo fileInfo = it.fileInfo();
-        if (fileInfo.isFile()) {
-            QString relativePath = fileInfo.absoluteFilePath().mid(resourcePrefix.length()).replace("template/","");
-            QString destPath = targetFolder + relativePath;
-
-            QDir().mkpath(QFileInfo(destPath).absolutePath());
-
-            if (!QFile::exists(destPath)) {
-                if (QFile::copy(fileInfo.absoluteFilePath(), destPath)) {
-                    QFile::setPermissions(destPath,
-                                          QFileDevice::ReadOwner | QFileDevice::WriteOwner |
-                                              QFileDevice::ReadUser  | QFileDevice::WriteUser
-                                          );
-                }
-            }
-        }
-    }
-
-    return true;
 }
 
 void gui_markdown::del_workspace(){

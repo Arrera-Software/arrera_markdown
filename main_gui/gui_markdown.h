@@ -10,7 +10,7 @@
 #include <QFileSystemModel>
 #include <QFileDialog>
 #include "main_gui/gui_create.h"
-#include <QDirIterator>
+#include "librairy/manage_template.h"
 
 #include <iostream>
 using namespace std;
@@ -54,6 +54,7 @@ private:
     QFileSystemModel *model;
 
     gui_create create_ui;
+    manage_template template_manager;
 
     bool file_conf_just_created;
     int index_main,index_about,index_setting,index_editor;
