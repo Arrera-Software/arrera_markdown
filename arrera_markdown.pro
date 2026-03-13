@@ -14,6 +14,7 @@ SOURCES += \
     custom_widget/markdowneditor.cpp \
     custom_widget/markdownhighlighter.cpp \
     librairy/csetting.cpp \
+    librairy/manage_template.cpp \
     main.cpp \
     main_gui/gui_create.cpp \
     main_gui/gui_markdown.cpp
@@ -22,6 +23,7 @@ HEADERS += \
     custom_widget/markdowneditor.h \
     custom_widget/markdownhighlighter.h \
     librairy/csetting.h \
+    librairy/manage_template.h \
     main_gui/gui_create.h \
     main_gui/gui_markdown.h
 
