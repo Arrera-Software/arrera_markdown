@@ -24,7 +24,7 @@ public:
     void setListTemplate(QStringList liste);
 
 signals:
-    void s_create(QString path);
+    void s_create(QString path,QString templates=nullptr);
 
 private slots:
     void on_btn_create_clicked();
