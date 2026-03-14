@@ -2,7 +2,12 @@
 #define GUI_CREATE_H
 
 #include <QDialog>
+#include <QFileDialog>
+#include <QMessageBox>
 #include "librairy/csetting.h"
+
+#include <iostream>
+using namespace std;
 
 namespace Ui {
 class gui_create;
@@ -17,6 +22,9 @@ public:
     ~gui_create();
     void setVisible(bool visible) override;
     void setListTemplate(QStringList liste);
+
+signals:
+    void s_create(QString path);
 
 private slots:
     void on_btn_create_clicked();

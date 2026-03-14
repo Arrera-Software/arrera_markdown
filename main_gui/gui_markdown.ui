@@ -22,7 +22,7 @@
     <item>
      <widget class="QStackedWidget" name="arrera_hub">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="main">
        <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -264,7 +264,7 @@
          </widget>
         </item>
         <item>
-         <widget class="MarkdownEditor" name="plainTextEdit">
+         <widget class="MarkdownEditor" name="view_document">
           <property name="font">
            <font>
             <family>Arial</family>

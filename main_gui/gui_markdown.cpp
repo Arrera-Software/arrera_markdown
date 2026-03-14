@@ -78,6 +78,11 @@ gui_markdown::gui_markdown(QWidget *parent)
     connect(ui->list_view_workspace_welcome,&QComboBox::currentIndexChanged,this,[this]{
         update_tree_welcome();
     });
+
+    connect(&create_ui,&gui_create::s_create,this, [this](QString path){
+        set_filename(path);
+        create_markdown_document();
+    });
 }
 
 gui_markdown::~gui_markdown()
@@ -186,6 +191,7 @@ void gui_markdown::open_web_page(QString p){
 
 void gui_markdown::on_tf_btn_icone_editor_clicked()
 {
+    save_document();
     update_list_workspace_welcome();
     ui->arrera_hub->setCurrentIndex(index_main);
 }
@@ -298,4 +304,57 @@ void gui_markdown::del_workspace(){
     ui->save_space->setCurrentIndex(index_setting_space_welcome);
 
     update_label_view_space();
+}
+
+
+bool gui_markdown::save_document(){
+    QString view_content;
+
+    QFile file(filename);
+
+    if (file.open(QIODevice::WriteOnly | QIODevice::Text)){
+        QTextStream out(&file);
+
+        view_content = ui->view_document->toPlainText();
+
+        cout << view_content.toStdString() << endl;
+
+        out << view_content ;
+
+        file.close();
+    }
+}
+
+void gui_markdown::set_filename(QString f){
+    filename = f;
+}
+
+void gui_markdown::close_document(){
+    save_document();
+    filename = "";
+}
+
+
+bool gui_markdown::create_markdown_document(QString templates){
+    if (templates == nullptr){
+
+        QFile file(filename);
+
+        if (file.exists()) {
+            QMessageBox::information(this,"Arrera Markdown","Le fichier existe deja");
+            return false;
+        }else{
+            if (file.open(QIODevice::WriteOnly)) {
+                file.close();
+                ui->arrera_hub->setCurrentIndex(index_editor);
+                return true;
+            }else{
+                return false;
+            }
+        }
+    }else{
+        cout << "Creation du template" << endl;
+        ui->arrera_hub->setCurrentIndex(index_editor);
+        return true;
+    }
 }

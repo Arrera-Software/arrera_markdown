@@ -47,7 +47,38 @@ void gui_create::setListTemplate(QStringList liste){
 
 void gui_create::on_btn_create_clicked()
 {
+    QString filename;
+    QString name = ui->entry_name->text();
 
+    if (name.isEmpty()){
+        QMessageBox::information(this,"Arrera Markdown",
+                                 "Impossible de crée un document vide");
+        this->close();
+        return;
+    }
+
+    QString space = setting_conf.getValeur("workspace",
+                                           ui->list_space_create->currentText()
+                                           );
+    if (space == "error"){
+        space = QFileDialog::getExistingDirectory(
+            this,
+            tr("Sélectionner un dossier"),
+            QDir::homePath(),
+            QFileDialog::ShowDirsOnly
+            );
+        if (space.isEmpty()){
+            QMessageBox::information(this,"Arrera Markdown","Creation du document annuler");
+            this->close();
+            return;
+        }
+    }
+
+    filename = space+"/"+name+".amd";
+
+    this->close();
+
+    emit s_create(filename);
 }
 
 

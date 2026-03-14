@@ -43,6 +43,10 @@ public:
     Q_INVOKABLE void add_workspace();
     Q_INVOKABLE void del_workspace();
 
+    // Methode pour la gestion de fichier
+    void set_filename(QString f);
+    bool create_markdown_document(QString templates=nullptr);
+
 private slots:
     void on_tf_btn_icon_clicked();
 
@@ -50,23 +54,27 @@ private slots:
 
 private:
     Ui::gui_markdown *ui;
+    // Objet de gestion
     CSetting setting_conf;
     QFileSystemModel *model;
-
-    gui_create create_ui;
     manage_template template_manager;
 
+    // Interface
+    gui_create create_ui;
+    // Attribut
     bool file_conf_just_created;
     int index_main,index_about,index_setting,index_editor;
     int index_setting_space_welcome,index_setting_add_space,index_setting_del_space;
     int index_welcome_add,index_welcome_space,index_welcome_template;
+    QString filename;
     // Methode
     void update_label_view_space();
     void update_list_workspace_welcome();
     void update_tree_welcome();
     bool copy_template();
-
     QString get_template_folder();
-
+    // Gestion de fichier
+    bool save_document();
+    void close_document();
 };
 #endif // GUI_MARKDOWN_H
