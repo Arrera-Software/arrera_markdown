@@ -317,8 +317,6 @@ bool gui_markdown::save_document(){
 
         view_content = ui->view_document->toPlainText();
 
-        cout << view_content.toStdString() << endl;
-
         out << view_content ;
 
         file.close();
@@ -337,9 +335,7 @@ void gui_markdown::close_document(){
 
 
 bool gui_markdown::create_markdown_document(QString templates){
-     QFile file(filename);
-
-    cout << templates.toStdString() << endl;
+    QFile file(filename);
 
     if (file.exists()) {
         QMessageBox::information(this,"Arrera Markdown","Le fichier existe deja");
@@ -367,8 +363,6 @@ bool gui_markdown::create_markdown_document(QString templates){
                 QTextStream in(&template_file);
 
                 QString content = in.readAll();
-
-                cout << content.toStdString() << endl;
 
                 ui->view_document->clear();
 
