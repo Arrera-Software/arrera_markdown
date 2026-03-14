@@ -38,6 +38,7 @@ public:
     Q_INVOKABLE void back_setting();
     Q_INVOKABLE void change_page_editor(int n);
     Q_INVOKABLE void change_page_setting_space(int n);
+    Q_INVOKABLE void reset_templates();
 
     // Fontion des parametre
     Q_INVOKABLE void add_workspace();

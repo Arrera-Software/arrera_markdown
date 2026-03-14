@@ -63,3 +63,19 @@ QStringList manage_template::get_list_template(){
 QString manage_template::get_template_folder(){
     return template_folder;
 }
+
+bool manage_template::reset_template(){
+    QDir dir(template_folder);
+
+    if (dir.exists()) {
+        if (!dir.removeRecursively()) {
+            return false;
+        }
+    }
+
+    if (!dir.mkpath(template_folder)) {
+        return false;
+    }
+
+    return update_list_template();
+}

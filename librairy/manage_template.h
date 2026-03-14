@@ -16,6 +16,7 @@ public:
     manage_template(CSetting &s);
     QStringList get_list_template();
     QString get_template_folder();
+    bool reset_template();
 };
 
 #endif // MANAGE_TEMPLATE_H

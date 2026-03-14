@@ -6,16 +6,31 @@ import QtQuick.Controls.Material 2.15
 Item {
     anchors.fill: parent
 
-    Button {
-        text: "Retour a l'acceuil"
-        highlighted: true
-        Material.accent: Material.BlueGrey
-        Material.primary: Material.Indigo
+    ColumnLayout {
         anchors.left: parent.left
         anchors.right: parent.right
-        anchors.margins: 10
         anchors.bottom: parent.bottom
-        height: 40
-        onClicked: main.back_setting()
+        anchors.margins: 10
+        spacing: 10 // Espace entre les deux boutons
+
+        Button {
+            text: "Remettre à zéro les templates"
+            Layout.fillWidth: true
+            height: 40
+            highlighted: true
+            Material.accent: Material.BlueGrey
+            Material.primary: Material.Indigo
+            onClicked: main.reset_templates()
+        }
+
+        Button {
+            text: "Retour à l'accueil"
+            Layout.fillWidth: true
+            height: 40
+            highlighted: true
+            Material.accent: Material.BlueGrey
+            Material.primary: Material.Indigo
+            onClicked: main.back_setting()
+        }
     }
 }

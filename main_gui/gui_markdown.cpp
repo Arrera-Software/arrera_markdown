@@ -178,6 +178,16 @@ void gui_markdown::change_page_setting_space(int n){
     }
 }
 
+void gui_markdown::reset_templates(){
+    if (template_manager.
+        reset_template())QMessageBox::information(this,
+                                 "Arrera Markdown",
+                                 "Les templates ont bien été remis à zéro");
+    else QMessageBox::critical(this,
+                              "Arrera Markdown",
+                              "Une erreur s'est produite lors du reset des templates");
+}
+
 void gui_markdown::on_tf_btn_icon_clicked()
 {
     ui->arrera_hub->setCurrentIndex(index_about);
