@@ -322,7 +322,8 @@ bool gui_markdown::save_document(){
         out << view_content ;
 
         file.close();
-    }
+        return true;
+    }else return false;
 }
 
 void gui_markdown::set_filename(QString f){
@@ -338,11 +339,13 @@ void gui_markdown::close_document(){
 bool gui_markdown::create_markdown_document(QString templates){
      QFile file(filename);
 
+    cout << templates.toStdString() << endl;
+
     if (file.exists()) {
         QMessageBox::information(this,"Arrera Markdown","Le fichier existe deja");
         return false;
     }else{
-        if (templates == nullptr){
+        if (templates.isEmpty()){
             if (file.open(QIODevice::WriteOnly)) {
                 file.close();
                 ui->arrera_hub->setCurrentIndex(index_editor);
@@ -361,9 +364,11 @@ bool gui_markdown::create_markdown_document(QString templates){
             }
 
             if (template_file.open(QIODevice::ReadOnly | QIODevice::Text)){
-                QTextStream in(&file);
+                QTextStream in(&template_file);
 
                 QString content = in.readAll();
+
+                cout << content.toStdString() << endl;
 
                 ui->view_document->clear();
 
@@ -372,6 +377,10 @@ bool gui_markdown::create_markdown_document(QString templates){
                 save_document();
 
                 ui->arrera_hub->setCurrentIndex(index_editor);
+
+                template_file.close();
+
+                return true;
 
             }else{
                 QMessageBox::information(this,"Arrera Markdown",
