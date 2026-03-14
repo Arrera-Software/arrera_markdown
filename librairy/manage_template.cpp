@@ -38,7 +38,7 @@ bool manage_template::update_list_template(){
             QString relativePath = fileInfo.absoluteFilePath().mid(resourcePrefix.length()).replace("template/","");
             QString destPath = template_folder + relativePath;
 
-            templates.append(relativePath);
+            templates.append(relativePath.replace("/",""));
 
             QDir().mkpath(QFileInfo(destPath).absolutePath());
 
