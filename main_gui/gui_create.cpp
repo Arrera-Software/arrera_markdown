@@ -49,6 +49,7 @@ void gui_create::on_btn_create_clicked()
 {
     QString filename;
     QString name = ui->entry_name->text();
+    QString templates = ui->list_template->currentText();
 
     if (name.isEmpty()){
         QMessageBox::information(this,"Arrera Markdown",
@@ -78,7 +79,8 @@ void gui_create::on_btn_create_clicked()
 
     this->close();
 
-    emit s_create(filename);
+    if (templates == "Aucun template") emit s_create(filename);
+    else emit s_create(filename,templates);
 }
 
 

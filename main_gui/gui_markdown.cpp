@@ -79,9 +79,9 @@ gui_markdown::gui_markdown(QWidget *parent)
         update_tree_welcome();
     });
 
-    connect(&create_ui,&gui_create::s_create,this, [this](QString path){
+    connect(&create_ui,&gui_create::s_create,this, [this](QString path,QString templates){
         set_filename(path);
-        create_markdown_document();
+        create_markdown_document(templates);
     });
 }
 
@@ -336,14 +336,13 @@ void gui_markdown::close_document(){
 
 
 bool gui_markdown::create_markdown_document(QString templates){
-    if (templates == nullptr){
+     QFile file(filename);
 
-        QFile file(filename);
-
-        if (file.exists()) {
-            QMessageBox::information(this,"Arrera Markdown","Le fichier existe deja");
-            return false;
-        }else{
+    if (file.exists()) {
+        QMessageBox::information(this,"Arrera Markdown","Le fichier existe deja");
+        return false;
+    }else{
+        if (templates == nullptr){
             if (file.open(QIODevice::WriteOnly)) {
                 file.close();
                 ui->arrera_hub->setCurrentIndex(index_editor);
@@ -351,10 +350,34 @@ bool gui_markdown::create_markdown_document(QString templates){
             }else{
                 return false;
             }
+        }else{
+            QString template_path = template_manager.get_template_folder()+"/"+templates;
+
+            QFile template_file(template_path);
+
+            if (!template_file.exists()){
+                QMessageBox::information(this,"Arrera Markdown","Le template n'existe pas");
+                return false;
+            }
+
+            if (template_file.open(QIODevice::ReadOnly | QIODevice::Text)){
+                QTextStream in(&file);
+
+                QString content = in.readAll();
+
+                ui->view_document->clear();
+
+                ui->view_document->setPlainText(content);
+
+                save_document();
+
+                ui->arrera_hub->setCurrentIndex(index_editor);
+
+            }else{
+                QMessageBox::information(this,"Arrera Markdown",
+                                         "Une erreur c'est produite a l'ouverture du fichier de template");
+                return false;
+            }
         }
-    }else{
-        cout << "Creation du template" << endl;
-        ui->arrera_hub->setCurrentIndex(index_editor);
-        return true;
     }
 }
