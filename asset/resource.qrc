@@ -35,6 +35,8 @@
         <file>ligne.png</file>
         <file>template_dark.png</file>
         <file>template_light.png</file>
+        <file>open_dark.png</file>
+        <file>open_light.png</file>
     </qresource>
     <qresource prefix="/template">
         <file>template/note.amd</file>
