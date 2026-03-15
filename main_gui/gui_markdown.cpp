@@ -83,6 +83,15 @@ gui_markdown::gui_markdown(QWidget *parent)
         set_filename(path);
         create_markdown_document(templates);
     });
+
+    // Partie gestion du tree view
+
+    ui->tree_view_file_space->setContextMenuPolicy(Qt::CustomContextMenu);
+
+    connect(ui->tree_view_file_space, &QTreeView::doubleClicked,
+            this, &gui_markdown::open_file_with_tree_view);
+    connect(ui->tree_view_file_space, &QTreeView::customContextMenuRequested,
+            this, &gui_markdown::tree_view_context_menu);
 }
 
 gui_markdown::~gui_markdown()
@@ -393,4 +402,48 @@ bool gui_markdown::create_markdown_document(QString templates){
             }
         }
     }
+}
+
+void gui_markdown::open_file_with_tree_view(const QModelIndex &index)
+{
+    QFileSystemModel *model = qobject_cast<QFileSystemModel*>(ui->tree_view_file_space->model());
+
+    QString path = model->filePath(index);
+    QFileInfo info(path);
+
+    if(info.isFile())
+    {
+        cout << "Ouverture du fichier "+path.toStdString() << endl;
+    }
+}
+
+void gui_markdown::tree_view_context_menu(const QPoint &pos)
+{
+    QModelIndex index = ui->tree_view_file_space->indexAt(pos);
+
+    if(!index.isValid())
+        return;
+
+    QMenu menu;
+
+    //QAction *renameAction = menu.addAction("Renommer");
+    QAction *deleteAction = menu.addAction("Supprimer");
+    QAction *add_action = menu.addAction("Ajouter");
+
+    QAction *selectedAction =
+        menu.exec(ui->tree_view_file_space->viewport()->mapToGlobal(pos));
+
+    model->setReadOnly(false);
+
+    if(selectedAction == deleteAction)
+    {
+        QFileSystemModel *model =
+            qobject_cast<QFileSystemModel*>(ui->tree_view_file_space->model());
+
+        model->remove(index);
+    }else if (selectedAction == add_action){
+        create_document();
+    }
+
+    model->setReadOnly(true);
 }

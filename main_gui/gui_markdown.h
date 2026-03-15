@@ -7,6 +7,8 @@
 #include <QDesktopServices>
 #include <QUrl>
 #include <QMessageBox>
+#include <QMenu>
+#include <QAction>
 #include <QFileSystemModel>
 #include <QFileDialog>
 #include "main_gui/gui_create.h"
@@ -77,5 +79,8 @@ private:
     // Gestion de fichier
     bool save_document();
     void close_document();
+    // Gestion du tree view
+    void open_file_with_tree_view(const QModelIndex &index);
+    void tree_view_context_menu(const QPoint &pos);
 };
 #endif // GUI_MARKDOWN_H

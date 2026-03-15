@@ -22,7 +22,7 @@
     <item>
      <widget class="QStackedWidget" name="arrera_hub">
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="main">
        <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -140,7 +140,7 @@
           <item>
            <widget class="QStackedWidget" name="welcome_arrera_hub">
             <property name="currentIndex">
-             <number>0</number>
+             <number>1</number>
             </property>
             <widget class="QWidget" name="template_welcome">
              <layout class="QVBoxLayout" name="verticalLayout_13">
