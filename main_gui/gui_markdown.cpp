@@ -352,6 +352,41 @@ void gui_markdown::close_document(){
     filename = "";
 }
 
+void gui_markdown::open_document_with_path(QString file){
+    QFile file_open(file);
+
+    if (!file_open.exists()){
+        QMessageBox::information(this,"Arrera Markdown",
+                                 "Le fichier existe pas");
+        return;
+    }
+
+    set_filename(file);
+
+    if (file_open.open(QIODevice::ReadOnly | QIODevice::Text)){
+        QTextStream in(&file_open);
+
+        QString content = in.readAll();
+
+        ui->view_document->clear();
+
+        ui->view_document->setPlainText(content);
+
+        save_document();
+
+        ui->arrera_hub->setCurrentIndex(index_editor);
+
+        file_open.close();
+
+        return;
+    }else {
+        QMessageBox::information(this,"Arrera Markdown",
+                                 "Une erreur c'est produite");
+        file_open.close();
+        return;
+    }
+}
+
 
 bool gui_markdown::create_markdown_document(QString templates){
     QFile file(filename);
@@ -413,7 +448,8 @@ void gui_markdown::open_file_with_tree_view(const QModelIndex &index)
 
     if(info.isFile())
     {
-        cout << "Ouverture du fichier "+path.toStdString() << endl;
+        //cout << "Ouverture du fichier "+path.toStdString() << endl;
+        open_document_with_path(path);
     }
 }
 

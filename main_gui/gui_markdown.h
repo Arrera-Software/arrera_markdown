@@ -57,13 +57,13 @@ private slots:
 
 private:
     Ui::gui_markdown *ui;
-    // Objet de gestion
+    // Objet setting
     CSetting setting_conf;
-    QFileSystemModel *model;
-    manage_template template_manager;
-
     // Interface
     gui_create create_ui;
+    // Objet de gestion
+    QFileSystemModel *model;
+    manage_template template_manager;
     // Attribut
     bool file_conf_just_created;
     int index_main,index_about,index_setting,index_editor;
@@ -79,6 +79,7 @@ private:
     // Gestion de fichier
     bool save_document();
     void close_document();
+    void open_document_with_path(QString file);
     // Gestion du tree view
     void open_file_with_tree_view(const QModelIndex &index);
     void tree_view_context_menu(const QPoint &pos);
