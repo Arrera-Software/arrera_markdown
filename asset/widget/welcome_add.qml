@@ -5,16 +5,9 @@ import QtQuick.Controls.Material 2.15
 
 Item {
     anchors.fill: parent
-
-    // Le conteneur Row permet d'aligner les éléments horizontalement
     Row {
-        // 1. On centre le conteneur (qui contient les deux boutons) au milieu de l'Item
         anchors.centerIn: parent
-
-        // 2. C'est ici qu'on définit l'écart (en pixels) entre les boutons
         spacing: 30
-
-        // --- PREMIER BOUTON (Existant) ---
         Button {
             implicitWidth: 80
             implicitHeight: 80
@@ -29,7 +22,6 @@ Item {
             onClicked: main.create_document()
         }
 
-        // --- DEUXIÈME BOUTON (Nouveau) ---
         Button {
             implicitWidth: 80
             implicitHeight: 80
