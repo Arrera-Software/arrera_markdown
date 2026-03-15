@@ -22,6 +22,15 @@ Item {
         }
 
         Button {
+            icon.source: "qrc:/icone_gui/open_light.png"
+            Layout.alignment: Qt.AlignHCenter
+            highlighted: true
+            Material.accent: Material.BlueGrey
+            Material.primary: Material.BlueGrey
+            onClicked: main.open_document_btn_welcome()
+        }
+
+        Button {
             icon.source: "qrc:/icone_gui/space_light.png"
             Layout.alignment: Qt.AlignHCenter
             highlighted: true
