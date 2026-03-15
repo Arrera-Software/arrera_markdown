@@ -40,11 +40,13 @@ public:
     Q_INVOKABLE void back_setting();
     Q_INVOKABLE void change_page_editor(int n);
     Q_INVOKABLE void change_page_setting_space(int n);
-    Q_INVOKABLE void reset_templates();
+    Q_INVOKABLE void open_document_btn_welcome();
+
 
     // Fontion des parametre
     Q_INVOKABLE void add_workspace();
     Q_INVOKABLE void del_workspace();
+    Q_INVOKABLE void reset_templates();
 
     // Methode pour la gestion de fichier
     void set_filename(QString f);

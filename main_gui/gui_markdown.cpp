@@ -187,6 +187,22 @@ void gui_markdown::change_page_setting_space(int n){
     }
 }
 
+void gui_markdown::open_document_btn_welcome(){
+    QString file = QFileDialog::getOpenFileName(
+        this,
+        tr("Sélectionner un fichier Arrera Markdown"),
+        QDir::homePath(),
+        tr("Fichiers AMD (*.amd)")
+        );
+
+    if (file.isEmpty()){
+        QMessageBox::information(this,"Arrera Markdown",
+                                 "Aucun fichier selectionner");
+    }
+
+    open_document_with_path(file);
+}
+
 void gui_markdown::reset_templates(){
     if (template_manager.
         reset_template())QMessageBox::information(this,
@@ -448,7 +464,6 @@ void gui_markdown::open_file_with_tree_view(const QModelIndex &index)
 
     if(info.isFile())
     {
-        //cout << "Ouverture du fichier "+path.toStdString() << endl;
         open_document_with_path(path);
     }
 }
