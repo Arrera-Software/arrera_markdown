@@ -31,7 +31,7 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QFrame" name="frame_top_create">
+    <widget class="RoundedFrame" name="frame_top_create">
      <property name="maximumSize">
       <size>
        <width>500</width>
@@ -100,7 +100,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QFrame" name="frame_middle_create">
+    <widget class="RoundedFrame" name="frame_middle_create">
      <property name="frameShape">
       <enum>QFrame::Shape::StyledPanel</enum>
      </property>
@@ -188,6 +188,14 @@
    </item>
   </layout>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>RoundedFrame</class>
+   <extends>QFrame</extends>
+   <header location="global">custom_widget/roundedframe.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="../asset/resource.qrc"/>
  </resources>

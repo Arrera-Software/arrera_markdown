@@ -13,6 +13,7 @@ CONFIG += c++17
 SOURCES += \
     custom_widget/markdowneditor.cpp \
     custom_widget/markdownhighlighter.cpp \
+    custom_widget/roundedframe.cpp \
     librairy/csetting.cpp \
     librairy/manage_template.cpp \
     main.cpp \
@@ -22,6 +23,7 @@ SOURCES += \
 HEADERS += \
     custom_widget/markdowneditor.h \
     custom_widget/markdownhighlighter.h \
+    custom_widget/roundedframe.h \
     librairy/csetting.h \
     librairy/manage_template.h \
     main_gui/gui_create.h \

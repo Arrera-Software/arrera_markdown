@@ -27,7 +27,7 @@
       <widget class="QWidget" name="main">
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
-         <widget class="QFrame" name="TOP_FRAME">
+         <widget class="RoundedFrame" name="TOP_FRAME">
           <property name="maximumSize">
            <size>
             <width>16777215</width>
@@ -761,6 +761,12 @@
    <class>MarkdownEditor</class>
    <extends>QPlainTextEdit</extends>
    <header location="global">custom_widget/markdowneditor.h</header>
+  </customwidget>
+  <customwidget>
+   <class>RoundedFrame</class>
+   <extends>QFrame</extends>
+   <header location="global">custom_widget/roundedframe.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources>
