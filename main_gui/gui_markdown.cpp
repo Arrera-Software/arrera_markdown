@@ -5,7 +5,7 @@
 gui_markdown::gui_markdown(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::gui_markdown),setting_conf("arrera_markdown"),create_ui(setting_conf,this),
-    template_manager(setting_conf)
+    template_manager(setting_conf),table_ui(this)
 {
     ui->setupUi(this);
 

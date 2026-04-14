@@ -12,6 +12,7 @@
 #include <QFileSystemModel>
 #include <QFileDialog>
 #include "main_gui/gui_create.h"
+#include "main_gui/gui_add_table.h"
 #include "librairy/manage_template.h"
 
 #include <iostream>
@@ -65,6 +66,7 @@ private:
     CSetting setting_conf;
     // Interface
     gui_create create_ui;
+    gui_add_table table_ui;
     // Objet de gestion
     QFileSystemModel *model;
     manage_template template_manager;
