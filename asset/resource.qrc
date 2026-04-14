@@ -38,6 +38,10 @@
         <file>template_light.png</file>
         <file>open_dark.png</file>
         <file>open_light.png</file>
+        <file>export_dark.png</file>
+        <file>export_white.png</file>
+        <file>print_dark.png</file>
+        <file>print_white.png</file>
     </qresource>
     <qresource prefix="/template">
         <file>template/note.amd</file>
