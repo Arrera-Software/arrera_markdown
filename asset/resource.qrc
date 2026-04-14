@@ -14,6 +14,7 @@
         <file>widget/setting_center_page.qml</file>
         <file>widget/welcome_add.qml</file>
         <file>widget/welcome_view_template.qml</file>
+        <file>widget/editor_menu_three.qml</file>
     </qresource>
     <qresource prefix="/icone_gui">
         <file>settings_dark.png</file>

@@ -22,13 +22,19 @@ Item {
         Button { // Code
             icon.source:"qrc:/icone_gui/code.png"
             Material.accent: Material.BlueGrey
-            //onClicked: main.open_web_page("https://arrera-software.fr/")
+            onClicked: main.insert_one_text("`")
         }
 
         Button { // Ligne
             icon.source:"qrc:/icone_gui/ligne.png"
             Material.accent: Material.BlueGrey
-            //onClicked: main.open_web_page("https://arrera-software.fr/")
+            onClicked: main.insert_one_text("---")
+        }
+
+        Button { // >
+            icon.source:"qrc:/icone_gui/left.png"
+            Material.accent: Material.BlueGrey
+            onClicked: main.change_page_editor(3)
         }
     }
 }

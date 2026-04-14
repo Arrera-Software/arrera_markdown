@@ -42,6 +42,8 @@ public:
     Q_INVOKABLE void change_page_setting_space(int n);
     Q_INVOKABLE void open_document_btn_welcome();
 
+    Q_INVOKABLE void insert_one_text(QString chars);
+
 
     // Fontion des parametre
     Q_INVOKABLE void add_workspace();

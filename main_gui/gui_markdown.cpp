@@ -147,6 +147,9 @@ void gui_markdown::change_page_editor(int n){
     case 2:
         file = "qrc:/qml/widget/editor_menu_two.qml";
         break;
+    case 3:
+        file = "qrc:/qml/widget/editor_menu_three.qml";
+        break;
     default:
         file = "qrc:/qml/widget/editor_menu_one.qml";
         break;
@@ -201,6 +204,17 @@ void gui_markdown::open_document_btn_welcome(){
     }
 
     open_document_with_path(file);
+}
+
+void gui_markdown::insert_one_text(QString chars){
+    if (!chars.isEmpty()&&chars!=""){
+        QPlainTextEdit *edit = ui->view_document;
+
+        QTextCursor cursor = edit->textCursor();
+
+        cursor.insertText(chars);
+        edit->setTextCursor(cursor);
+    }
 }
 
 void gui_markdown::reset_templates(){
