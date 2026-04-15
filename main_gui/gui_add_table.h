@@ -15,6 +15,11 @@ public:
     explicit gui_add_table(QWidget *parent = nullptr);
     ~gui_add_table();
 
+private slots:
+    void on_IDC_VALIDATE_clicked();
+
+    void on_IDC_CANCEL_clicked();
+
 private:
     Ui::gui_add_table *ui;
 };

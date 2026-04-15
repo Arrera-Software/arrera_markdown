@@ -44,6 +44,7 @@ public:
     Q_INVOKABLE void open_document_btn_welcome();
 
     Q_INVOKABLE void insert_one_text(QString chars);
+    Q_INVOKABLE void insert_table();
 
 
     // Fontion des parametre

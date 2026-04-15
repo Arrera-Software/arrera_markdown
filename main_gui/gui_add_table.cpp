@@ -12,3 +12,14 @@ gui_add_table::~gui_add_table()
 {
     delete ui;
 }
+
+void gui_add_table::on_IDC_VALIDATE_clicked()
+{
+
+}
+
+
+void gui_add_table::on_IDC_CANCEL_clicked()
+{
+    this->close();
+}

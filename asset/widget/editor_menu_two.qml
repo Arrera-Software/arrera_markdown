@@ -16,7 +16,7 @@ Item {
         Button { // Tableau
             icon.source:"qrc:/icone_gui/tableau.png"
             Material.accent: Material.BlueGrey
-            //onClicked: main.open_web_page("https://arrera-software.fr/")
+            onClicked: main.insert_table()
         }
 
         Button { // Code
