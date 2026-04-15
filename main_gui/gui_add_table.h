@@ -20,6 +20,8 @@ private slots:
 
     void on_IDC_CANCEL_clicked();
 
+signals:
+    void create_table(int l,int c);
 private:
     Ui::gui_add_table *ui;
 };

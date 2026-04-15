@@ -90,5 +90,7 @@ private:
     // Gestion du tree view
     void open_file_with_tree_view(const QModelIndex &index);
     void tree_view_context_menu(const QPoint &pos);
+    // Insertion de carractere
+    void on_insert_table(int l,int c);
 };
 #endif // GUI_MARKDOWN_H

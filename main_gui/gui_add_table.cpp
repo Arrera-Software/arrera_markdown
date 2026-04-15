@@ -15,7 +15,12 @@ gui_add_table::~gui_add_table()
 
 void gui_add_table::on_IDC_VALIDATE_clicked()
 {
+    int ligne = ui->NB_LIGNE->value();
+    int colone = ui->NB_COLONE->value();
 
+    emit create_table(ligne,colone);
+
+    this->close();
 }
 
 

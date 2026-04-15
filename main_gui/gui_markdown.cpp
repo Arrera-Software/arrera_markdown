@@ -92,6 +92,11 @@ gui_markdown::gui_markdown(QWidget *parent)
             this, &gui_markdown::open_file_with_tree_view);
     connect(ui->tree_view_file_space, &QTreeView::customContextMenuRequested,
             this, &gui_markdown::tree_view_context_menu);
+
+    // Partie insert table
+
+    connect(&table_ui, &gui_add_table::create_table,
+            this, &gui_markdown::on_insert_table);
 }
 
 gui_markdown::~gui_markdown()
@@ -515,4 +520,10 @@ void gui_markdown::tree_view_context_menu(const QPoint &pos)
     }
 
     model->setReadOnly(true);
+}
+
+void gui_markdown::on_insert_table(int l,int c){
+    cout << "Insert" << endl;
+    cout << l << endl;
+    cout << c << endl;
 }
