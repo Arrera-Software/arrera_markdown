@@ -222,7 +222,7 @@ void gui_markdown::insert_one_text(QString chars){
     }
 }
 
-Q_INVOKABLE void gui_markdown::insert_table(){
+void gui_markdown::insert_table(){
     table_ui.show();
 }
 
@@ -522,8 +522,34 @@ void gui_markdown::tree_view_context_menu(const QPoint &pos)
     model->setReadOnly(true);
 }
 
-void gui_markdown::on_insert_table(int l,int c){
-    cout << "Insert" << endl;
-    cout << l << endl;
-    cout << c << endl;
+void gui_markdown::on_insert_table(int l, int c){
+    if (l != 0 && c != 0){
+        QString tableMarkdown = "\n";
+
+        tableMarkdown += "|";
+        for (int col = 1; col <= c; ++col) {
+            tableMarkdown += QString(" Titre %1 |").arg(col);
+        }
+        tableMarkdown += "\n";
+
+        tableMarkdown += "|";
+        for (int col = 0; col < c; ++col) {
+            tableMarkdown += "---|";
+        }
+        tableMarkdown += "\n";
+
+        for (int row = 0; row < l; ++row) {
+            tableMarkdown += "|";
+            for (int col = 0; col < c; ++col) {
+                tableMarkdown += "       |";
+            }
+            tableMarkdown += "\n";
+        }
+        tableMarkdown += "\n";
+
+        insert_one_text(tableMarkdown);
+
+    } else {
+        QMessageBox::critical(this, "Arrera Markdown", "Impossible de faire le tableau demandé.");
+    }
 }

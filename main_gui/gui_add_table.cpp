@@ -8,6 +8,14 @@ gui_add_table::gui_add_table(QWidget *parent)
     ui->setupUi(this);
 }
 
+void gui_add_table::show()
+{
+    QDialog::show();
+
+    ui->NB_LIGNE->setValue(1);
+    ui->NB_COLONE->setValue(1);
+}
+
 gui_add_table::~gui_add_table()
 {
     delete ui;
