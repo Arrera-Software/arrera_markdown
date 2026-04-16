@@ -227,7 +227,19 @@ void gui_markdown::insert_table(){
 }
 
 void gui_markdown::print_document(){
-    cout << ui->view_document->getHtmlContent().toStdString() << endl;
+    QString content = ui->view_document->getHtmlContent();
+
+    QTextBrowser *browser = new QTextBrowser();
+    browser->setHtml(content);
+    QPrinter printer(QPrinter::HighResolution);
+    QPrintDialog printDialog(&printer);
+
+    if (printDialog.exec() == QDialog::Rejected) {
+        return;
+    }
+
+    browser->print(&printer);
+    delete browser;
 }
 
 void gui_markdown::reset_templates(){

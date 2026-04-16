@@ -1,4 +1,4 @@
-QT += core gui widgets quick qml quickwidgets quickcontrols2
+QT += core printsupport gui widgets quick qml quickwidgets quickcontrols2
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 

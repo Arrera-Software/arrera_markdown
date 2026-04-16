@@ -10,6 +10,9 @@
 #include <QMenu>
 #include <QAction>
 #include <QFileSystemModel>
+#include <QPrinter>
+#include <QTextBrowser>
+#include <QPrintDialog>
 #include <QFileDialog>
 #include "main_gui/gui_create.h"
 #include "main_gui/gui_add_table.h"
