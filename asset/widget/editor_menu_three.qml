@@ -22,7 +22,7 @@ Item {
         Button { // Imprimer
             icon.source:"qrc:/icone_gui/print_dark.png"
             Material.accent: Material.BlueGrey
-            //onClicked: main.open_web_page("https://arrera-software.fr/")
+            onClicked: main.print_document()
         }
     }
 }

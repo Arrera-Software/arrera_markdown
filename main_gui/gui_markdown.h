@@ -46,6 +46,7 @@ public:
     Q_INVOKABLE void insert_one_text(QString chars);
     Q_INVOKABLE void insert_table();
 
+    Q_INVOKABLE void print_document();
 
     // Fontion des parametre
     Q_INVOKABLE void add_workspace();

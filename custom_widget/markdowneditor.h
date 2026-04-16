@@ -8,6 +8,7 @@ class MarkdownEditor : public QPlainTextEdit
 {
 public:
     explicit MarkdownEditor(QWidget *parent = nullptr);
+    QString getHtmlContent() const;
 private :
     MarkdownHighlighter *highlighter;
 };

@@ -226,6 +226,10 @@ void gui_markdown::insert_table(){
     table_ui.show();
 }
 
+void gui_markdown::print_document(){
+    cout << ui->view_document->getHtmlContent().toStdString() << endl;
+}
+
 void gui_markdown::reset_templates(){
     if (template_manager.
         reset_template())QMessageBox::information(this,
