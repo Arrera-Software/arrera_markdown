@@ -42,6 +42,10 @@
         <file>export_white.png</file>
         <file>print_dark.png</file>
         <file>print_white.png</file>
+        <file>export_markdown_dark.png</file>
+        <file>export_markdown_light.png</file>
+        <file>export_pdf_dark.png</file>
+        <file>export_pdf_light.png</file>
     </qresource>
     <qresource prefix="/template">
         <file>template/note.amd</file>

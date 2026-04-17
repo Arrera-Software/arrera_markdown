@@ -16,7 +16,7 @@ Item {
         Button { // Exporter
             icon.source:"qrc:/icone_gui/export_dark.png"
             Material.accent: Material.BlueGrey
-            //onClicked: main.open_web_page("https://arrera-software.fr/")
+            onClicked: main.export_document()
         }
 
         Button { // Imprimer

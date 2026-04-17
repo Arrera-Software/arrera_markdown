@@ -13,9 +13,11 @@
 #include <QPrinter>
 #include <QTextBrowser>
 #include <QPrintDialog>
+#include <QPdfWriter>
 #include <QFileDialog>
 #include "main_gui/gui_create.h"
 #include "main_gui/gui_add_table.h"
+#include "main_gui/gui_export.h"
 #include "librairy/manage_template.h"
 
 #include <iostream>
@@ -50,6 +52,7 @@ public:
     Q_INVOKABLE void insert_table();
 
     Q_INVOKABLE void print_document();
+    Q_INVOKABLE void export_document();
 
     // Fontion des parametre
     Q_INVOKABLE void add_workspace();
@@ -72,6 +75,7 @@ private:
     // Interface
     gui_create create_ui;
     gui_add_table table_ui;
+    gui_export export_ui;
     // Objet de gestion
     QFileSystemModel *model;
     manage_template template_manager;
@@ -96,5 +100,6 @@ private:
     void tree_view_context_menu(const QPoint &pos);
     // Insertion de carractere
     void on_insert_table(int l,int c);
+    void on_export_document(QString type);
 };
 #endif // GUI_MARKDOWN_H

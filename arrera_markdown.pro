@@ -19,6 +19,7 @@ SOURCES += \
     main.cpp \
     main_gui/gui_add_table.cpp \
     main_gui/gui_create.cpp \
+    main_gui/gui_export.cpp \
     main_gui/gui_markdown.cpp
 
 HEADERS += \
@@ -29,11 +30,13 @@ HEADERS += \
     librairy/manage_template.h \
     main_gui/gui_add_table.h \
     main_gui/gui_create.h \
+    main_gui/gui_export.h \
     main_gui/gui_markdown.h
 
 FORMS += \
     main_gui/gui_add_table.ui \
     main_gui/gui_create.ui \
+    main_gui/gui_export.ui \
     main_gui/gui_markdown.ui
 
 # Default rules for deployment.

@@ -5,7 +5,7 @@
 gui_markdown::gui_markdown(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::gui_markdown),setting_conf("arrera_markdown"),create_ui(setting_conf,this),
-    template_manager(setting_conf),table_ui(this)
+    template_manager(setting_conf),table_ui(this),export_ui(this)
 {
     ui->setupUi(this);
 
@@ -94,9 +94,12 @@ gui_markdown::gui_markdown(QWidget *parent)
             this, &gui_markdown::tree_view_context_menu);
 
     // Partie insert table
-
     connect(&table_ui, &gui_add_table::create_table,
             this, &gui_markdown::on_insert_table);
+
+    // Partie export
+    connect(&export_ui, &gui_export::export_document,
+            this, &gui_markdown::on_export_document);
 }
 
 gui_markdown::~gui_markdown()
@@ -240,6 +243,10 @@ void gui_markdown::print_document(){
 
     browser->print(&printer);
     delete browser;
+}
+
+void gui_markdown::export_document(){
+    export_ui.show();
 }
 
 void gui_markdown::reset_templates(){
@@ -567,5 +574,65 @@ void gui_markdown::on_insert_table(int l, int c){
 
     } else {
         QMessageBox::critical(this, "Arrera Markdown", "Impossible de faire le tableau demandé.");
+    }
+}
+
+void gui_markdown::on_export_document(QString type){
+    // Type :
+    // - pdf
+    // - md (Markdown)
+
+    if (type == "pdf"){
+        QString content = ui->view_document->getHtmlContent();
+
+        QString fileName = QFileDialog::getSaveFileName(
+            this,
+            "Enregistrer en PDF",
+            QDir::homePath() + "/document.pdf", // nom par défaut
+            "Fichiers PDF (*.pdf)"
+            );
+
+        if (fileName.isEmpty()) return;
+
+        if (!fileName.endsWith(".pdf", Qt::CaseInsensitive)) {
+            fileName += ".pdf";
+        }
+
+        QTextDocument doc;
+        doc.setHtml(content);
+
+        QPrinter printer(QPrinter::HighResolution);
+        printer.setOutputFormat(QPrinter::PdfFormat);
+        printer.setOutputFileName(fileName);
+
+        doc.print(&printer);
+
+    }else if (type =="md"){
+        QString fileName = QFileDialog::getSaveFileName(
+            this,
+            "Enregistrer en Markdown",
+            QDir::homePath() + "/document.md", // nom par défaut
+            "Fichiers MD (*.md)"
+            );
+
+        if (fileName.isEmpty()) return;
+
+        if (!fileName.endsWith(".md", Qt::CaseInsensitive)) {
+            fileName += ".md";
+        }
+
+        QString content = ui->view_document->toPlainText();
+
+        QFile file(fileName);
+
+        if (!file.open(QIODevice::WriteOnly | QIODevice::Text)) {
+            qDebug() << "Erreur ouverture fichier";
+            return;
+        }
+
+        QTextStream out(&file);
+        out << content;
+
+        file.close();
     }
 }
