@@ -16,8 +16,7 @@ Item {
             icon.source: "qrc:/icone_gui/add_light.png"
             Layout.alignment: Qt.AlignHCenter
             highlighted: true
-            Material.accent: Material.BlueGrey
-            Material.primary: Material.BlueGrey
+            Material.accent: Material.Indigo
             onClicked: main.create_document()
         }
 
@@ -25,8 +24,7 @@ Item {
             icon.source: "qrc:/icone_gui/open_light.png"
             Layout.alignment: Qt.AlignHCenter
             highlighted: true
-            Material.accent: Material.BlueGrey
-            Material.primary: Material.BlueGrey
+            Material.accent: Material.Indigo
             onClicked: main.open_document_btn_welcome()
         }
 
@@ -34,8 +32,7 @@ Item {
             icon.source: "qrc:/icone_gui/space_light.png"
             Layout.alignment: Qt.AlignHCenter
             highlighted: true
-            Material.accent: Material.BlueGrey
-            Material.primary: Material.BlueGrey
+            Material.accent: Material.Indigo
             onClicked: main.view_espace()
         }
 
@@ -43,8 +40,7 @@ Item {
             icon.source: "qrc:/icone_gui/template_light.png"
             Layout.alignment: Qt.AlignHCenter
             highlighted: true
-            Material.accent: Material.BlueGrey
-            Material.primary: Material.BlueGrey
+            Material.accent: Material.Indigo
             onClicked: main.view_template()
         }
 
@@ -57,8 +53,7 @@ Item {
             icon.source:"qrc:/icone_gui/settings_light.png"
             Layout.fillWidth: true
             highlighted: true
-            Material.accent: Material.BlueGrey
-            Material.primary: Material.BlueGrey
+            Material.accent: Material.Indigo
             onClicked: main.view_setting()
         }
     }

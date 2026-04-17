@@ -14,8 +14,7 @@ Item{
             text:"Ajouter un espace"
             Layout.alignment: Qt.AlignHCenter
             highlighted: true
-            Material.accent: Material.BlueGrey
-            Material.primary: Material.BlueGrey
+            Material.accent: Material.Indigo
             onClicked: main.change_page_setting_space(2);
         }
 
@@ -23,8 +22,7 @@ Item{
             text:"Supprimer un espace"
             Layout.alignment: Qt.AlignHCenter
             highlighted: true
-            Material.accent: Material.BlueGrey
-            Material.primary: Material.BlueGrey
+            Material.accent: Material.Indigo
             onClicked: main.change_page_setting_space(3);
         }
     }

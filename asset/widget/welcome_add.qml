@@ -17,7 +17,7 @@ Item {
             icon.height: 40
 
             highlighted: true
-            Material.accent: Material.DeepPurple
+            Material.accent: Material.Indigo
 
             onClicked: main.create_document()
         }
@@ -30,7 +30,7 @@ Item {
             icon.height: 40
 
             highlighted: true
-            Material.accent: Material.DeepPurple
+            Material.accent: Material.Indigo
 
             onClicked: main.open_document_btn_welcome()
         }

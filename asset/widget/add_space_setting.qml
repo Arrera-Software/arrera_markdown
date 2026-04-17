@@ -14,8 +14,7 @@ Item {
         Button {
             text: "Ajouter"
             highlighted: true
-            Material.accent: Material.BlueGrey
-            Material.primary: Material.BlueGrey
+            Material.accent: Material.Indigo
             Layout.alignment: Qt.AlignVCenter
             onClicked: main.add_workspace();
         }
@@ -27,8 +26,7 @@ Item {
         Button {
             text: "Annuler"
             highlighted: true
-            Material.accent: Material.BlueGrey
-            Material.primary: Material.BlueGrey
+            Material.accent: Material.Indigo
             Layout.alignment: Qt.AlignVCenter
             onClicked: main.change_page_setting_space(1);
         }

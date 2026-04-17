@@ -9,31 +9,36 @@ Item {
 
         Button { // <
             icon.source:"qrc:/icone_gui/right.png"
-            Material.accent: Material.BlueGrey
+            Material.accent: Material.Indigo
+            highlighted: true
             onClicked: main.change_page_editor(1)
         }
 
         Button { // Tableau
             icon.source:"qrc:/icone_gui/tableau.png"
-            Material.accent: Material.BlueGrey
+            Material.accent: Material.Indigo
+            highlighted: true
             onClicked: main.insert_table()
         }
 
         Button { // Code
             icon.source:"qrc:/icone_gui/code.png"
-            Material.accent: Material.BlueGrey
+            Material.accent: Material.Indigo
+            highlighted: true
             onClicked: main.insert_one_text("`")
         }
 
         Button { // Ligne
             icon.source:"qrc:/icone_gui/ligne.png"
-            Material.accent: Material.BlueGrey
+            Material.accent: Material.Indigo
+            highlighted: true
             onClicked: main.insert_one_text("---")
         }
 
         Button { // >
             icon.source:"qrc:/icone_gui/left.png"
-            Material.accent: Material.BlueGrey
+            Material.accent: Material.Indigo
+            highlighted: true
             onClicked: main.change_page_editor(3)
         }
     }

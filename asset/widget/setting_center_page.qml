@@ -18,8 +18,7 @@ Item {
             Layout.fillWidth: true
             height: 40
             highlighted: true
-            Material.accent: Material.BlueGrey
-            Material.primary: Material.Indigo
+            Material.accent: Material.Indigo
             onClicked: main.reset_templates()
         }
 
@@ -28,8 +27,7 @@ Item {
             Layout.fillWidth: true
             height: 40
             highlighted: true
-            Material.accent: Material.BlueGrey
-            Material.primary: Material.Indigo
+            Material.accent: Material.Indigo
             onClicked: main.back_setting()
         }
     }
