@@ -25,6 +25,10 @@
   <property name="windowTitle">
    <string>Arrera Markdown : Insertion d'un tableau</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="../asset/resource.qrc">
+    <normaloff>:/icone/icon_linux.png</normaloff>:/icone/icon_linux.png</iconset>
+  </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="RoundedFrame" name="frame_top_create">
