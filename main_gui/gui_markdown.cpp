@@ -44,6 +44,30 @@ gui_markdown::gui_markdown(QWidget *parent)
 
     ui->qwidget_menu_editor->rootContext()->setContextProperty("main", this);
 
+    ui->main_quick_widget->setClearColor(Qt::transparent);
+    ui->main_quick_widget->setAttribute(Qt::WA_AlwaysStackOnTop);
+
+    ui->about_qwidget_setting->setClearColor(Qt::transparent);
+    ui->about_qwidget_setting->setAttribute(Qt::WA_AlwaysStackOnTop);
+
+    ui->qwidget_space_welcome->setClearColor(Qt::transparent);
+    ui->qwidget_space_welcome->setAttribute(Qt::WA_AlwaysStackOnTop);
+
+    ui->qwidget_space_add->setClearColor(Qt::transparent);
+    ui->qwidget_space_add->setAttribute(Qt::WA_AlwaysStackOnTop);
+
+    ui->qwidget_space_del->setClearColor(Qt::transparent);
+    ui->qwidget_space_del->setAttribute(Qt::WA_AlwaysStackOnTop);
+
+    ui->qwidget_setting->setClearColor(Qt::transparent);
+    ui->qwidget_setting->setAttribute(Qt::WA_AlwaysStackOnTop);
+
+    ui->qwidget_add_welcome->setClearColor(Qt::transparent);
+    ui->qwidget_add_welcome->setAttribute(Qt::WA_AlwaysStackOnTop);
+
+    ui->qwidget_menu_editor->setClearColor(Qt::transparent);
+    ui->qwidget_menu_editor->setAttribute(Qt::WA_AlwaysStackOnTop);
+
     ui->qwidget_view_template->rootContext()->setContextProperty("osTemplatePath",
                                                                  QUrl::fromLocalFile(
                                                                      template_manager.get_template_folder()));
