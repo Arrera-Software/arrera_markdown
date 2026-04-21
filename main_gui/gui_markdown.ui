@@ -22,7 +22,7 @@
     <item>
      <widget class="QStackedWidget" name="arrera_hub">
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="main">
        <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -205,7 +205,7 @@
       <widget class="QWidget" name="editor">
        <layout class="QVBoxLayout" name="verticalLayout_7">
         <item>
-         <widget class="QFrame" name="TOP_FRAME_EDITOR">
+         <widget class="RoundedFrame" name="TOP_FRAME_EDITOR">
           <property name="maximumSize">
            <size>
             <width>16777215</width>
