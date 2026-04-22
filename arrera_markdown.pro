@@ -11,6 +11,8 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    custom_widget/apushbutton.cpp \
+    custom_widget/arrera_theme.cpp \
     custom_widget/markdowneditor.cpp \
     custom_widget/markdownhighlighter.cpp \
     custom_widget/roundedframe.cpp \
@@ -23,6 +25,8 @@ SOURCES += \
     main_gui/gui_markdown.cpp
 
 HEADERS += \
+    custom_widget/apushbutton.h \
+    custom_widget/arrera_theme.h \
     custom_widget/markdowneditor.h \
     custom_widget/markdownhighlighter.h \
     custom_widget/roundedframe.h \

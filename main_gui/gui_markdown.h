@@ -19,6 +19,7 @@
 #include "main_gui/gui_add_table.h"
 #include "main_gui/gui_export.h"
 #include "librairy/manage_template.h"
+#include "custom_widget/arrera_theme.h"
 
 #include <iostream>
 using namespace std;
@@ -72,6 +73,7 @@ private:
     Ui::gui_markdown *ui;
     // Objet setting
     CSetting setting_conf;
+    Arrera_Theme theme;
     // Interface
     gui_create create_ui;
     gui_add_table table_ui;

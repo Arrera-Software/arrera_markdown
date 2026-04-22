@@ -52,4 +52,7 @@
         <file>template/liste_tache.amd</file>
         <file>template/tableau.amd</file>
     </qresource>
+    <qresource prefix="/theme">
+        <file>theme/theme_bleu_blanc.json</file>
+    </qresource>
 </RCC>

@@ -5,7 +5,7 @@
 gui_markdown::gui_markdown(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::gui_markdown),setting_conf("arrera_markdown"),create_ui(setting_conf,this),
-    template_manager(setting_conf),table_ui(this),export_ui(this)
+    template_manager(setting_conf),table_ui(this),export_ui(this),theme(this)
 {
     ui->setupUi(this);
 
@@ -16,6 +16,9 @@ gui_markdown::gui_markdown(QWidget *parent)
         ui->save_space->setCurrentIndex(index_setting_space_welcome);
         ui->welcome_arrera_hub->setCurrentIndex(index_welcome_add);
     }
+
+    // Mise en place du theme
+    theme.loadThemeFromJson(":/theme/theme/theme_bleu_blanc.json");
 
     index_main = ui->arrera_hub->indexOf(ui->main);
     index_about = ui->arrera_hub->indexOf(ui->about);
