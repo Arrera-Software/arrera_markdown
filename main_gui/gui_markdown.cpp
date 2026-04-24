@@ -77,6 +77,7 @@ gui_markdown::gui_markdown(QWidget *parent)
 
     ui->qwidget_view_template->setSource(QUrl(QStringLiteral("qrc:/qml/widget/welcome_view_template.qml")));
     ui->qwidget_view_template->setResizeMode(QQuickWidget::SizeRootObjectToView);
+    ui->qwidget_view_template->rootContext()->setContextProperty("main", this);
 
     #ifdef Q_OS_MAC
     QPixmap icon(":/icone/icon_mac.png");
@@ -152,7 +153,7 @@ void gui_markdown::view_template(){
 
 void gui_markdown::create_document(){
     create_ui.setListTemplate(template_manager.get_list_template());
-    create_ui.setVisible(true);
+    create_ui.view_normal(true);
     change_page_editor(1);
 }
 
@@ -274,6 +275,10 @@ void gui_markdown::print_document(){
 
 void gui_markdown::export_document(){
     export_ui.show();
+}
+
+void gui_markdown::action_clicked_template(QString file){
+    create_ui.view_with_template(true,file);
 }
 
 void gui_markdown::reset_templates(){

@@ -77,7 +77,7 @@ Rectangle {
                     border.width: btn.hovered ? 2 : 0
                 }
 
-                onClicked: console.log("Fichier cliqué : " + model.fileUrl)
+                onClicked: main.action_clicked_template(btn.cleanName)
             }
         }
     }

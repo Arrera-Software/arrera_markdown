@@ -20,7 +20,8 @@ class gui_create : public QDialog
 public:
     explicit gui_create(CSetting &s,QWidget *parent = nullptr);
     ~gui_create();
-    void setVisible(bool visible) override;
+    void view_normal(bool visible);
+    void view_with_template(bool visible,QString t_file);
     void setListTemplate(QStringList liste);
 
 signals:
@@ -33,8 +34,10 @@ private slots:
 
 private:
     Ui::gui_create *ui;
+    QString template_file;
     CSetting setting_conf;
     QStringList liste_template;
+    bool with_template;
 };
 
 #endif // GUI_CREATE_H

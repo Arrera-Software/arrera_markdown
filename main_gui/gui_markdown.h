@@ -55,6 +55,8 @@ public:
     Q_INVOKABLE void print_document();
     Q_INVOKABLE void export_document();
 
+    Q_INVOKABLE void action_clicked_template(QString file);
+
     // Fontion des parametre
     Q_INVOKABLE void add_workspace();
     Q_INVOKABLE void del_workspace();

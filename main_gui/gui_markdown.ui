@@ -140,7 +140,7 @@
           <item>
            <widget class="QStackedWidget" name="welcome_arrera_hub">
             <property name="currentIndex">
-             <number>1</number>
+             <number>0</number>
             </property>
             <widget class="QWidget" name="template_welcome">
              <layout class="QVBoxLayout" name="verticalLayout_13">
@@ -758,11 +758,6 @@
    <header location="global">QtQuickWidgets/QQuickWidget</header>
   </customwidget>
   <customwidget>
-   <class>MarkdownEditor</class>
-   <extends>QPlainTextEdit</extends>
-   <header location="global">custom_widget/markdowneditor.h</header>
-  </customwidget>
-  <customwidget>
    <class>RoundedFrame</class>
    <extends>QFrame</extends>
    <header location="global">custom_widget/roundedframe.h</header>
@@ -772,6 +767,11 @@
    <class>APushButton</class>
    <extends>QPushButton</extends>
    <header location="global">custom_widget/apushbutton.h</header>
+  </customwidget>
+  <customwidget>
+   <class>MarkdownEditor</class>
+   <extends>QPlainTextEdit</extends>
+   <header location="global">custom_widget/markdowneditor.h</header>
   </customwidget>
  </customwidgets>
  <resources>

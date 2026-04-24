@@ -20,12 +20,17 @@ gui_create::~gui_create()
     delete ui;
 }
 
-void gui_create::setVisible(bool visible){
-    QWidget::setVisible(visible);
-
+void gui_create::view_normal(bool visible){
     if (visible){
+        with_template = false;
+        ui->create->setCurrentWidget(ui->normal);
+
         ui->entry_name->clear();
         QStringList space,ftemplate;
+
+        for (const QString &s : ftemplate) {
+            std::cout << s.toStdString() << std::endl;
+        }
 
         space.append("Autre");
         space.append(setting_conf.getSectionKeys("workspace"));
@@ -36,20 +41,57 @@ void gui_create::setVisible(bool visible){
         ui->list_space_create->clear();
         ui->list_template->clear();
 
+        for (const QString &s : ftemplate) {
+            std::cout << s.toStdString() << std::endl;
+        }
+
         ui->list_space_create->addItems(space);
         ui->list_template->addItems(ftemplate);
     }
+
+    QDialog::setVisible(visible);
+}
+void gui_create::view_with_template(bool visible,QString t_file){
+    if (visible){
+        with_template = true;
+        template_file = t_file;
+        ui->create->setCurrentWidget(ui->with_template);
+
+        ui->entry_name_template->clear();
+
+        QStringList space,ftemplate;
+
+        space.append("Autre");
+        space.append(setting_conf.getSectionKeys("workspace"));
+
+        ui->list_space_template->clear();
+
+        ui->list_space_template->addItems(space);
+    }
+
+    QDialog::setVisible(visible);
 }
 
 void gui_create::setListTemplate(QStringList liste){
+    liste_template.clear();
     liste_template.append(liste);
 }
 
 void gui_create::on_btn_create_clicked()
 {
-    QString filename;
-    QString name = ui->entry_name->text();
-    QString templates = ui->list_template->currentText();
+    QString filename,name,templates,space;
+
+    if (!with_template){
+        name = ui->entry_name->text();
+        templates = ui->list_template->currentText();
+        space = setting_conf.getValeur("workspace",
+                                       ui->list_space_create->currentText());
+    }else{
+        name = ui->entry_name_template->text();
+        templates = template_file+".amd";
+        space = setting_conf.getValeur("workspace",
+                                       ui->list_space_template->currentText());
+    }
 
     if (name.isEmpty()){
         QMessageBox::information(this,"Arrera Markdown",
@@ -58,9 +100,6 @@ void gui_create::on_btn_create_clicked()
         return;
     }
 
-    QString space = setting_conf.getValeur("workspace",
-                                           ui->list_space_create->currentText()
-                                           );
     if (space == "error"){
         space = QFileDialog::getExistingDirectory(
             this,

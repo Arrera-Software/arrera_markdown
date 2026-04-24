@@ -149,14 +149,14 @@
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_4">
         <item>
-         <widget class="QPushButton" name="IDC_CANCEL">
+         <widget class="APushButton" name="IDC_CANCEL">
           <property name="text">
            <string>Annuler</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QPushButton" name="IDC_VALIDATE">
+         <widget class="APushButton" name="IDC_VALIDATE">
           <property name="text">
            <string>Valider</string>
           </property>
@@ -175,6 +175,11 @@
    <extends>QFrame</extends>
    <header location="global">custom_widget/roundedframe.h</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>APushButton</class>
+   <extends>QPushButton</extends>
+   <header location="global">custom_widget/apushbutton.h</header>
   </customwidget>
  </customwidgets>
  <resources>
