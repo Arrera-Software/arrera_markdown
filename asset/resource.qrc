@@ -48,9 +48,15 @@
         <file>export_pdf_light.png</file>
     </qresource>
     <qresource prefix="/template">
-        <file>template/note.amd</file>
+        <file>template/suivi_projet.amd</file>
+        <file>template/recette_cuisine.amd</file>
+        <file>template/readme_github.amd</file>
+        <file>template/nouvelle_fonction.amd</file>
+        <file>template/note_reunion.amd</file>
         <file>template/liste_tache.amd</file>
-        <file>template/tableau.amd</file>
+        <file>template/documentation_logiciel.amd</file>
+        <file>template/documentation_api.amd</file>
+        <file>template/article.amd</file>
     </qresource>
     <qresource prefix="/theme">
         <file>theme/theme_bleu_blanc.json</file>

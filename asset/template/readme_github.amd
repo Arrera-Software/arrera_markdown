@@ -1,0 +1,28 @@
+# [Nom du Projet]
+
+> [Une courte phrase d'accroche qui résume l'utilité du projet.]
+
+## 🚀 Fonctionnalités principales
+* Fonctionnalité géniale 1
+* Fonctionnalité géniale 2
+* Fonctionnalité géniale 3
+
+## 🛠️ Installation
+
+```bash
+git clone [https://github.com/votre-nom/votre-projet.git](https://github.com/votre-nom/votre-projet.git)
+cd votre-projet
+npm install # ou la commande adéquate
+
+# 💻 Utilisation
+
+```bash
+npm run dev # ou la commande adéquate
+````
+
+# 🤝 Contribuer
+
+Les contributions (Pull Requests) sont les bienvenues. Pour les changements majeurs, veuillez d'abord ouvrir une "Issue" pour discuter de ce que vous aimeriez modifier.
+
+# 📄 Licence
+

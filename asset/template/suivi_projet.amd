@@ -1,0 +1,18 @@
+# Tableau de Bord : [Nom du Projet]
+
+**Objectif principal :** [Décrire l'objectif final en une phrase]
+**Date de livraison estimée :** YYYY-MM-DD
+
+## 📋 À Faire (Backlog)
+- [ ] Tâche à planifier
+- [ ] Autre tâche à planifier
+
+## 🚧 En Cours
+- [ ] Tâche actuellement travaillée par @[Nom]
+
+## 🛑 Bloqué
+- [ ] Tâche en attente d'une validation ou d'une ressource externe
+
+## ✅ Terminé
+- [x] Tâche achevée 1
+- [x] Tâche achevée 2

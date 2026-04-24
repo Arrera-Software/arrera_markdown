@@ -1,0 +1,31 @@
+# Nom de l'API / Nom du Endpoint
+
+**Méthode :** `GET` | `POST` | `PUT` | `DELETE`  
+**URL :** `/api/v1/ressource`
+
+## Description
+[Description courte et précise de ce que fait ce point de terminaison et de son utilité.]
+
+## Paramètres de la requête
+
+| Nom | Type | Requis | Description |
+| :--- | :---: | :---: | :--- |
+| `param1` | `string` | Oui | [Description du paramètre] |
+| `param2` | `int` | Non | [Description du paramètre] |
+
+## Corps de la requête (Exemple)
+```json
+{
+  "cle": "valeur"
+}
+```
+# Reponse (Exemple)
+
+Code HTTP : 200 OK
+
+```json
+{
+  "statut": "succès",
+  "donnees": {}
+}
+```

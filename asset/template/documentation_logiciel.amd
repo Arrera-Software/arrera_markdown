@@ -1,0 +1,18 @@
+# [Nom du Logiciel / Outil]
+
+## À propos
+[Description détaillée de ce que fait le logiciel, l'architecture globale, pour qui il est conçu, etc.]
+
+## Prérequis
+* [ ] Dépendance ou outil 1
+* [ ] Dépendance ou outil 2
+
+## Installation et Lancement
+1. [Première commande à taper]
+2. [Deuxième commande]
+
+## Guide d'utilisation
+[Expliquez ici comment utiliser les fonctionnalités principales pas à pas.]
+
+## Configuration requise
+[Listez les variables d'environnement, les clés d'API ou les fichiers de configuration nécessaires pour que tout fonctionne correctement.]
