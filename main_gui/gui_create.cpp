@@ -28,10 +28,6 @@ void gui_create::view_normal(bool visible){
         ui->entry_name->clear();
         QStringList space,ftemplate;
 
-        for (const QString &s : ftemplate) {
-            std::cout << s.toStdString() << std::endl;
-        }
-
         space.append("Autre");
         space.append(setting_conf.getSectionKeys("workspace"));
 
@@ -40,10 +36,6 @@ void gui_create::view_normal(bool visible){
 
         ui->list_space_create->clear();
         ui->list_template->clear();
-
-        for (const QString &s : ftemplate) {
-            std::cout << s.toStdString() << std::endl;
-        }
 
         ui->list_space_create->addItems(space);
         ui->list_template->addItems(ftemplate);

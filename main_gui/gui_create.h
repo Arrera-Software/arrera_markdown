@@ -6,8 +6,8 @@
 #include <QMessageBox>
 #include "librairy/csetting.h"
 
-#include <iostream>
-using namespace std;
+/*#include <iostream>
+using namespace std;*/
 
 namespace Ui {
 class gui_create;

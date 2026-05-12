@@ -21,8 +21,8 @@
 #include "librairy/manage_template.h"
 #include "custom_widget/arrera_theme.h"
 
-#include <iostream>
-using namespace std;
+/*#include <iostream>
+using namespace std;*/
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
