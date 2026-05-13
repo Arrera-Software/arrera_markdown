@@ -21,6 +21,8 @@
 #include "librairy/manage_template.h"
 #include "custom_widget/arrera_theme.h"
 
+#define VERSION "dev"
+
 /*#include <iostream>
 using namespace std;*/
 

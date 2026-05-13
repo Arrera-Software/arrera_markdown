@@ -22,7 +22,7 @@
     <item>
      <widget class="QStackedWidget" name="arrera_hub">
       <property name="currentIndex">
-       <number>2</number>
+       <number>3</number>
       </property>
       <widget class="QWidget" name="main">
        <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -784,15 +784,15 @@
    <header location="global">QtQuickWidgets/QQuickWidget</header>
   </customwidget>
   <customwidget>
-   <class>RoundedFrame</class>
-   <extends>QFrame</extends>
-   <header location="global">custom_widget/roundedframe.h</header>
-   <container>1</container>
-  </customwidget>
-  <customwidget>
    <class>APushButton</class>
    <extends>QPushButton</extends>
-   <header location="global">custom_widget/apushbutton.h</header>
+   <header location="global">arrera_qt/apushbutton.h</header>
+  </customwidget>
+  <customwidget>
+   <class>RoundedFrame</class>
+   <extends>QFrame</extends>
+   <header location="global">arrera_qt/roundedframe.h</header>
+   <container>1</container>
   </customwidget>
   <customwidget>
    <class>MarkdownEditor</class>

@@ -22,7 +22,8 @@ SOURCES += \
     main_gui/gui_add_table.cpp \
     main_gui/gui_create.cpp \
     main_gui/gui_export.cpp \
-    main_gui/gui_markdown.cpp
+    main_gui/gui_markdown.cpp \
+    updater/ctigerdemon.cpp
 
 HEADERS += \
     custom_widget/apushbutton.h \
@@ -35,7 +36,8 @@ HEADERS += \
     main_gui/gui_add_table.h \
     main_gui/gui_create.h \
     main_gui/gui_export.h \
-    main_gui/gui_markdown.h
+    main_gui/gui_markdown.h \
+    updater/ctigerdemon.h
 
 FORMS += \
     main_gui/gui_add_table.ui \
