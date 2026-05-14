@@ -20,8 +20,9 @@
 #include "main_gui/gui_export.h"
 #include "librairy/manage_template.h"
 #include "custom_widget/arrera_theme.h"
+#include "updater/ctigerdemon.h"
 
-#define VERSION "dev"
+#define VERSION "I2026-1.00"
 
 /*#include <iostream>
 using namespace std;*/
@@ -64,6 +65,8 @@ public:
     Q_INVOKABLE void del_workspace();
     Q_INVOKABLE void reset_templates();
 
+    Q_INVOKABLE void test_update();
+
     // Methode pour la gestion de fichier
     void set_filename(QString f);
     bool create_markdown_document(QString templates=nullptr);
@@ -82,6 +85,8 @@ private:
     gui_create create_ui;
     gui_add_table table_ui;
     gui_export export_ui;
+    // Mise a  jour
+    CTigerDemon update_demon;
     // Objet de gestion
     QFileSystemModel *model;
     manage_template template_manager;

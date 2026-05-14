@@ -129,6 +129,33 @@ gui_markdown::gui_markdown(QWidget *parent)
     // Partie export
     connect(&export_ui, &gui_export::export_document,
             this, &gui_markdown::on_export_document);
+
+    // Connect de la partie update
+    ui->about_label_version->setText(update_demon.get_version());
+
+    connect(&update_demon, &CTigerDemon::updateResult, this, [=](bool hasUpdate, QString newVersion){
+        if (hasUpdate) {
+            ui->about_label_update->setVisible(true);
+            ui->about_label_update->setText("La version " +newVersion+ " est disponible");
+            QMessageBox::information(this,"Arrera Markdown","Une mise à jour d'Arrera Markdown est disponible");
+        }else {
+            ui->about_label_update->setVisible(false);
+        }
+    });
+
+    connect(&update_demon, &CTigerDemon::updateError, this, [=](int errorCode){
+        if (errorCode == -1){
+            ui->about_label_update->setVisible(true);
+            ui->about_label_update->setText("Impossible de vérifier les mises à jour, une erreur réseau s'est produite");
+        }else if (errorCode == -2){
+            ui->about_label_update->setVisible(true);
+            ui->about_label_update->setText("Impossible de vérifier les mises à jour");
+        }else{
+            ui->about_label_update->setVisible(false);
+        }
+    });
+
+    test_update();
 }
 
 gui_markdown::~gui_markdown()
@@ -291,6 +318,11 @@ void gui_markdown::reset_templates(){
                               "Arrera Markdown",
                               "Une erreur s'est produite lors du reset des templates");
 }
+
+void gui_markdown::test_update(){
+    update_demon.checkUpdate();
+}
+
 
 void gui_markdown::on_tf_btn_icon_clicked()
 {

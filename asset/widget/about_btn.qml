@@ -40,6 +40,15 @@ Item {
         }
 
         Button {
+            text: "Vérifier les mises à jour"
+            highlighted: true
+            Material.accent: Material.Indigo
+            Layout.fillWidth: true
+            Layout.preferredHeight: 40
+            onClicked: main.test_update()
+        }
+
+        Button {
             text: "Retour a l'acceuil"
             highlighted: true
             Material.accent: Material.Indigo

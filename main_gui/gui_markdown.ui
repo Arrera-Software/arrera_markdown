@@ -724,6 +724,21 @@
          </widget>
         </item>
         <item>
+         <widget class="QLabel" name="about_label_update">
+          <property name="font">
+           <font>
+            <pointsize>15</pointsize>
+           </font>
+          </property>
+          <property name="text">
+           <string>TextLabel</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignmentFlag::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+        <item>
          <widget class="QLabel" name="about_labe_copyright">
           <property name="font">
            <font>
@@ -756,7 +771,7 @@
           <property name="minimumSize">
            <size>
             <width>0</width>
-            <height>100</height>
+            <height>175</height>
            </size>
           </property>
           <property name="resizeMode">
@@ -786,12 +801,12 @@
   <customwidget>
    <class>APushButton</class>
    <extends>QPushButton</extends>
-   <header location="global">arrera_qt/apushbutton.h</header>
+   <header location="global">custom_widget/apushbutton.h</header>
   </customwidget>
   <customwidget>
    <class>RoundedFrame</class>
    <extends>QFrame</extends>
-   <header location="global">arrera_qt/roundedframe.h</header>
+   <header location="global">custom_widget/roundedframe.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
