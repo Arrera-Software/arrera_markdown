@@ -19,10 +19,13 @@
 #include "main_gui/gui_add_table.h"
 #include "main_gui/gui_export.h"
 #include "librairy/manage_template.h"
+#include "librairy/csocketclient.h"
 #include "custom_widget/arrera_theme.h"
 #include "updater/ctigerdemon.h"
 
 #define VERSION "dev"
+
+
 
 /*#include <iostream>
 using namespace std;*/
@@ -90,6 +93,8 @@ private:
     // Objet de gestion
     QFileSystemModel *model;
     manage_template template_manager;
+    // Socket
+    CArreraClient link_assistant;
     // Attribut
     bool file_conf_just_created;
     int index_main,index_about,index_setting,index_editor;

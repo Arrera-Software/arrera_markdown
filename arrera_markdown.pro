@@ -1,6 +1,6 @@
 QT += core printsupport gui widgets quick qml quickwidgets quickcontrols2
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets websockets network
 
 CONFIG += c++17
 
@@ -17,6 +17,7 @@ SOURCES += \
     custom_widget/markdownhighlighter.cpp \
     custom_widget/roundedframe.cpp \
     librairy/csetting.cpp \
+    librairy/csocketclient.cpp \
     librairy/manage_template.cpp \
     main.cpp \
     main_gui/gui_add_table.cpp \
@@ -32,6 +33,7 @@ HEADERS += \
     custom_widget/markdownhighlighter.h \
     custom_widget/roundedframe.h \
     librairy/csetting.h \
+    librairy/csocketclient.h \
     librairy/manage_template.h \
     main_gui/gui_add_table.h \
     main_gui/gui_create.h \
