@@ -22,7 +22,7 @@
 #include "custom_widget/arrera_theme.h"
 #include "updater/ctigerdemon.h"
 
-#define VERSION "I2026-1.00"
+#define VERSION "dev"
 
 /*#include <iostream>
 using namespace std;*/
