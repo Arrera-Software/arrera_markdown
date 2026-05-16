@@ -18,6 +18,7 @@
 #include "main_gui/gui_create.h"
 #include "main_gui/gui_add_table.h"
 #include "main_gui/gui_export.h"
+#include "main_gui/gui_check_orthographe.h"
 #include "librairy/manage_template.h"
 #include "librairy/csocketclient.h"
 #include "custom_widget/arrera_theme.h"
@@ -27,8 +28,10 @@
 
 
 
-/*#include <iostream>
-using namespace std;*/
+/**/
+
+#include <iostream>
+using namespace std;
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -74,6 +77,11 @@ public:
     void set_filename(QString f);
     bool create_markdown_document(QString templates=nullptr);
 
+    // Methode de la correction
+    Q_INVOKABLE void correction_text();
+public slots:
+    void close();
+
 private slots:
     void on_tf_btn_icon_clicked();
 
@@ -88,6 +96,7 @@ private:
     gui_create create_ui;
     gui_add_table table_ui;
     gui_export export_ui;
+    gui_check_orthographe orthographe_ui;
     // Mise a  jour
     CTigerDemon update_demon;
     // Objet de gestion
@@ -101,7 +110,7 @@ private:
     int index_setting_space_welcome,index_setting_add_space,index_setting_del_space;
     int index_welcome_add,index_welcome_space,index_welcome_template;
     QString filename;
-    // Methode
+private :// Methode
     void update_label_view_space();
     void update_list_workspace_welcome();
     void update_tree_welcome();
@@ -117,5 +126,7 @@ private:
     // Insertion de carractere
     void on_insert_table(int l,int c);
     void on_export_document(QString type);
+    // Socket
+    void gestion_message_assistant(QString message);
 };
 #endif // GUI_MARKDOWN_H

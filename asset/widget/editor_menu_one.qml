@@ -51,6 +51,13 @@ Item {
             onClicked: main.insert_one_text("++")
         }
 
+        Button { // Correction
+            icon.source:"qrc:/icone_gui/correction_black.png"
+            Material.accent: Material.Indigo
+            highlighted: true
+            onClicked: main.correction_text()
+        }
+
         Button { // >
             icon.source:"qrc:/icone_gui/left.png"
             Material.accent: Material.Indigo

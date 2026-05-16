@@ -5,7 +5,7 @@
 gui_markdown::gui_markdown(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::gui_markdown),setting_conf("arrera_markdown"),create_ui(setting_conf,this),
-    template_manager(setting_conf),table_ui(this),
+    orthographe_ui(this),template_manager(setting_conf),table_ui(this),
     export_ui(this),theme(this),update_demon("markdown",VERSION,this),
     link_assistant("arrera_markdown",this)
 {
@@ -159,11 +159,27 @@ gui_markdown::gui_markdown(QWidget *parent)
     test_update();
 
     link_assistant.connectToServeur("ws://localhost:6780");
+
+    connect(&link_assistant, &CArreraClient::messageReceived, this,
+            &gui_markdown::gestion_message_assistant);
+
+    // Partie orthographe
+    connect(&orthographe_ui,&gui_check_orthographe::new_text,this,[=](QString text){
+        ui->view_document->clear();
+        ui->view_document->setPlainText(text);
+        save_document();
+        QMessageBox::information(this,"Arrera Markdown","Texte corrigé");
+    });
 }
 
 gui_markdown::~gui_markdown()
 {
     delete ui;
+}
+
+void gui_markdown::close(){
+    save_document();
+    QMainWindow::close();
 }
 
 void gui_markdown::view_espace(){
@@ -329,6 +345,7 @@ void gui_markdown::test_update(){
 
 void gui_markdown::on_tf_btn_icon_clicked()
 {
+    link_assistant.sendMessage("Coucou");
     ui->arrera_hub->setCurrentIndex(index_about);
 }
 
@@ -702,5 +719,25 @@ void gui_markdown::on_export_document(QString type){
         out << content;
 
         file.close();
+    }
+}
+
+void gui_markdown::gestion_message_assistant(QString message){
+    QString data = message.trimmed();
+    if (data == "closed"){
+        this->close();
+    }else if (data.contains("text")){
+        QString new_text = data.replace("text","").trimmed();
+        if (orthographe_ui.insert_text(new_text)){
+            orthographe_ui.show();
+        }
+    }
+}
+
+void gui_markdown::correction_text(){
+    QString text = ui->view_document->toPlainText();
+    QString text_to_assistant = "corection "+text;
+    if (link_assistant.sendMessage(text_to_assistant)){
+        QMessageBox::information(this,"Arrera Markdown","Correction en cours");
     }
 }

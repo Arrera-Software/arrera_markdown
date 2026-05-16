@@ -46,6 +46,8 @@
         <file>export_markdown_light.png</file>
         <file>export_pdf_dark.png</file>
         <file>export_pdf_light.png</file>
+        <file>correction_black.png</file>
+        <file>correction_light.png</file>
     </qresource>
     <qresource prefix="/template">
         <file>template/suivi_projet.amd</file>
