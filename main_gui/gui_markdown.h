@@ -24,14 +24,15 @@
 #include "custom_widget/arrera_theme.h"
 #include "updater/ctigerdemon.h"
 
-#define VERSION "dev"
+#define VERSION "I2026-1.00"
 
 
 
-/**/
-
+/*
 #include <iostream>
-using namespace std;
+using namespace std;*/
+
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
