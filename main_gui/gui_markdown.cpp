@@ -170,6 +170,18 @@ gui_markdown::gui_markdown(QWidget *parent)
         save_document();
         QMessageBox::information(this,"Arrera Markdown","Texte corrigé");
     });
+
+    // Configuration de la sauvegarde automatique
+    auto_save_timer = new QTimer(this);
+    auto_save_timer->setSingleShot(true);
+    connect(auto_save_timer, &QTimer::timeout, this, [this](){
+        save_document();
+    });
+    connect(ui->view_document, &QPlainTextEdit::textChanged, this, [this](){
+        if (!filename.isEmpty()) {
+            auto_save_timer->start(2000); // Sauvegarde 2 secondes après la dernière modification
+        }
+    });
 }
 
 gui_markdown::~gui_markdown()
@@ -358,6 +370,8 @@ void gui_markdown::open_web_page(QString p){
 void gui_markdown::on_tf_btn_icone_editor_clicked()
 {
     save_document();
+    filename = "";
+    ui->view_document->clear();
     update_list_workspace_welcome();
     ui->arrera_hub->setCurrentIndex(index_main);
 }
@@ -474,9 +488,11 @@ void gui_markdown::del_workspace(){
 
 
 bool gui_markdown::save_document(){
+    if (filename.isEmpty()) return false;
+
     QString view_content;
 
-    QFile file(filename);
+    QSaveFile file(filename);
 
     if (file.open(QIODevice::WriteOnly | QIODevice::Text)){
         QTextStream out(&file);
@@ -485,7 +501,7 @@ bool gui_markdown::save_document(){
 
         out << view_content ;
 
-        file.close();
+        file.commit();
         return true;
     }else return false;
 }
@@ -497,6 +513,7 @@ void gui_markdown::set_filename(QString f){
 void gui_markdown::close_document(){
     save_document();
     filename = "";
+    ui->view_document->clear();
 }
 
 void gui_markdown::open_document_with_path(QString file){
@@ -518,8 +535,6 @@ void gui_markdown::open_document_with_path(QString file){
         ui->view_document->clear();
 
         ui->view_document->setPlainText(content);
-
-        save_document();
 
         ui->arrera_hub->setCurrentIndex(index_editor);
 
@@ -545,6 +560,7 @@ bool gui_markdown::create_markdown_document(QString templates){
         if (templates.isEmpty()){
             if (file.open(QIODevice::WriteOnly)) {
                 file.close();
+                ui->view_document->clear();
                 ui->arrera_hub->setCurrentIndex(index_editor);
                 return true;
             }else{

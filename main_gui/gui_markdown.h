@@ -11,10 +11,12 @@
 #include <QAction>
 #include <QFileSystemModel>
 #include <QPrinter>
+#include <QTimer>
 #include <QTextBrowser>
 #include <QPrintDialog>
 #include <QPdfWriter>
 #include <QFileDialog>
+#include <QSaveFile>
 #include "main_gui/gui_create.h"
 #include "main_gui/gui_add_table.h"
 #include "main_gui/gui_export.h"
@@ -110,6 +112,7 @@ private:
     int index_setting_space_welcome,index_setting_add_space,index_setting_del_space;
     int index_welcome_add,index_welcome_space,index_welcome_template;
     QString filename;
+    QTimer *auto_save_timer;
 private :// Methode
     void update_label_view_space();
     void update_list_workspace_welcome();
