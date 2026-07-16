@@ -52,6 +52,7 @@ int CSetting::checkOS(){
     #elif defined(Q_OS_MAC)
         return 3;
     #endif
+    return 0;
 }
 
 bool CSetting::getFileCreated() const {

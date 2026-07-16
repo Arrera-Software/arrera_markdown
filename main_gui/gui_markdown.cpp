@@ -296,6 +296,7 @@ void gui_markdown::open_document_btn_welcome(){
     if (file.isEmpty()){
         QMessageBox::information(this,"Arrera Markdown",
                                  "Aucun fichier selectionner");
+        return;
     }
 
     open_document_with_path(file);
@@ -325,6 +326,7 @@ void gui_markdown::print_document(){
     QPrintDialog printDialog(&printer);
 
     if (printDialog.exec() == QDialog::Rejected) {
+        delete browser;
         return;
     }
 
@@ -471,6 +473,7 @@ void gui_markdown::del_workspace(){
     if (valeur.isEmpty()){
         QMessageBox::critical(this,"Arrera Markdown",
                               "Une erreur c'est produite");
+        return;
     }
 
     if (setting_conf.supprValeur("workspace",valeur)){
@@ -525,9 +528,8 @@ void gui_markdown::open_document_with_path(QString file){
         return;
     }
 
-    set_filename(file);
-
     if (file_open.open(QIODevice::ReadOnly | QIODevice::Text)){
+        set_filename(file);
         QTextStream in(&file_open);
 
         QString content = in.readAll();

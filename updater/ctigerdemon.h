@@ -27,7 +27,6 @@ public:
     void checkUpdate();
     QString get_version();
 private:
-    QNetworkAccessManager* manager;
     QJsonObject contenuJSON;
     QString offline_version;
     QString online_version,name_soft;
