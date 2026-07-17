@@ -28,8 +28,6 @@
 
 #define VERSION "dev"
 
-
-
 /*
 #include <iostream>
 using namespace std;
