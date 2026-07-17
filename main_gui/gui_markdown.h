@@ -26,7 +26,7 @@
 #include "custom_widget/arrera_theme.h"
 #include "updater/ctigerdemon.h"
 
-#define VERSION "dev"
+#define VERSION "I2026-1.50"
 
 /*
 #include <iostream>
