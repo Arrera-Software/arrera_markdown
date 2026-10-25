@@ -359,7 +359,6 @@ void gui_markdown::test_update(){
 
 void gui_markdown::on_tf_btn_icon_clicked()
 {
-    link_assistant.sendMessage("Coucou");
     ui->arrera_hub->setCurrentIndex(index_about);
 }
 
@@ -742,9 +741,7 @@ void gui_markdown::on_export_document(QString type){
 
 void gui_markdown::gestion_message_assistant(QString message){
     QString data = message.trimmed();
-    if (data == "closed"){
-        this->close();
-    }else if (data.contains("text")){
+    if (data.contains("text")){
         QString new_text = data.replace("text","").trimmed();
         if (orthographe_ui.insert_text(new_text)){
             orthographe_ui.show();
